@@ -17,4 +17,5 @@ Open API — http-интерфейс для взаимодействия с то
 # Контакты
 
 `openapi_invest@tinkoff.ru`
+
 `n.v.melnikov@tinkoff.ru`
