@@ -1,6 +1,6 @@
 # REST-протокол
 
-Документация: [Swagger](https://api-invest.tinkoff.ru/openapi/docs/swagger-ui/index.html)
+Документация: [Swagger](https://tinkoffcreditsystems.github.io/invest-openapi/swagger-ui/)
 
 ## Генерация
 
