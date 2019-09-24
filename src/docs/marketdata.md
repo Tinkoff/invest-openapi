@@ -1,0 +1,248 @@
+# Протокол
+
+Streaming market-data в качестве протокола транспорта использует WebSocket.
+  
+
+### Ограничения
+
+* Доступно только 1 tcp-соединение на одного пользователя.
+
+## candle:subscribe
+Подписка на свечи
+ 
+Пример запроса:
+
+
+```
+{
+    "event": "candle:subscribe",
+    "figi": "{{FIGI}}",
+    "interval": "{{INTERVAL}}"
+}
+```
+ 
+Формат ответа:
+
+
+| Параметр | Тип | Обязательность | Описание |
+| --- | --- | --- | --- |
+| event | string | + | Название события |
+| payload | object | + | Структура свечи |
+| payload.o | double | + | Цена открытия |
+| payload.c | double | + | Цена закрытия |
+| payload.h | double | + | Наибольшая цена |
+| payload.l | double | + | Наименьшая цена |
+| payload.v | double | + | Объем торгов |
+| payload.time | string | + | Время в формате RFC3339 |
+| payload.interval | string | + | Interval |
+| payload.figi | string | + | FIGI |
+
+ 
+Пример ответа:
+
+```
+{
+    "event": "candle",
+    "payload": {
+        "o": 64.0575,
+        "c": 64.0575,
+        "h": 64.0575,
+        "l": 64.0575,
+        "v": 156,
+        "time": "2019-08-07T15:35:00Z",
+        "interval": "5min",
+        "figi": "BBG0013HGFT4"
+    }
+}
+```
+
+## candle:unsubscribe
+
+Отписка от свечей
+
+Пример запроса:
+
+```
+{
+    "event": "candle:unsubscribe",
+    "figi": "{{FIGI}}",
+    "interval": "{{INTERVAL}}"
+}
+```
+
+## orderbook:subscribe
+
+Подписка на стакан
+
+Пример запроса:
+
+```
+{
+    "event": "orderbook:subscribe",
+    "figi": "{{FIGI}}",
+    "depth": {{DEPTH}}
+}
+```
+
+Формат ответа:
+
+
+| Параметр | Тип | Обязательность | Описание |
+| --- | --- | --- | --- |
+| event | string | + | Название события |
+| payload | object | + | Структура со стаканом |
+| payload.depth | int | + | Глубина стакана |
+| payload.bids | array[double,double] | + | Массив `[Цена, количество]` предложений цены |
+| payload.asks | array[double,double] | + | Массив `[Цена, количество]` запросов цены |
+| payload.figi | string | + | FIGI |
+
+
+Пример ответа:
+
+```
+{
+    "event": "orderbook",
+    "payload": {
+        "figi": "BBG0013HGFT4",
+        "depth": 2,
+        "bids": [
+            [64.3525, 204],
+            [64.1975, 276]
+        ],
+        "asks": [
+            [64.38, 227],
+            [64.5225, 120]
+        ]
+    }
+}
+```
+
+## orderbook:unsubscribe
+
+Отписка от стакана
+
+Пример запроса:
+
+```
+{
+    "event": "orderbook:unsubscribe",
+    "figi": "{{FIGI}}",
+    "depth": "{{DEPTH}}"
+}
+```
+
+## instrument_info:subscribe
+
+Подписка на информацию об инструменте
+
+Пример запроса:
+
+```
+{
+    "event": "instrument_info:subscribe",
+    "figi": "{{FIGI}}"
+}
+```
+
+Формат ответа:
+
+| Параметр | Тип | Обязательность | Описание |
+| --- | --- | --- | --- |
+| event | string | + | Название события |
+| payload | object | + | Структура с информацией по инструменту |
+| payload.trade_status | string | + | Статус торгов |
+| payload.min_price_increment | double | + | Шаг цены |
+| payload.lot | double | + | Лот |
+| payload.accrued_interest | double | - | НКД. Возвращается только для бондов |
+| payload.limit_up | double | - | Верхняя граница заявки. Возвращается только для RTS инструментов |
+| payload.limit_down| double | - | Нижняя граница заявки. Возвращается только для RTS инструментов |
+| payload.figi | string | + | FIGI |
+
+
+Пример ответа:
+
+```
+{
+    "event": "instrument_info",
+    "payload": {
+        "figi": "BBG0013HGFT4",
+        "trade_status": "normal_trading",
+        "min_price_increment": 0.0025,
+        "lot": 1000
+    }
+}
+```
+
+## instrument_info:unsubscribe
+
+Отписка от информации об инструменте
+
+Пример запроса:
+
+```
+{
+    "event": "instrument_info:unsubscribe",
+    "figi": "{{FIGI}}"
+}
+```
+
+# Описание форматов
+
+### Interval
+
+```
+("1min","2min","3min","5min","10min","15min","30min","hour","2hour","4hour","day","week","month")
+```
+
+### Depth
+
+```
+0 < DEPTH <= 20
+```
+
+# Примеры подключения
+
+```go
+package main
+
+import (
+    "flag"
+    "log"
+    "net/http"
+
+    "github.com/gorilla/websocket"
+)
+
+var addr = flag.String("addr", "{{MARKET_DATA_URL}}", "http service address")
+var token = flag.String("token", "", "API token")
+
+func main() {
+    flag.Parse()
+
+    c, _, err := websocket.DefaultDialer.Dial(*addr, http.Header{"Authorization": {"Bearer " + *token}})
+    if err != nil {
+        log.Fatal("dial:", err)
+    }
+    defer c.Close()
+
+    go func() {
+        for {
+            _, message, err := c.ReadMessage()
+            if err != nil {
+                log.Println("read: ", err)
+                return
+            }
+            log.Printf("recv: %s\n", message)
+        }
+    }()
+
+    const sub = `{"event": "orderbook:subscribe", "figi": "BBG0013HGFT4", "depth": 10}`
+    err = c.WriteMessage(websocket.TextMessage, []byte(sub))
+    if err != nil {
+        log.Println("write: ", err)
+        return
+    }
+
+    select {}
+}
+```

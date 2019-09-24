@@ -1,0 +1,16 @@
+site_name: 'Tinkoff Invest API Documentation'
+docs_dir: docs
+theme:
+  name: material
+  language: 'ru'
+  palette:
+    primary: black
+    accent: yellow
+
+nav:
+- Начало работы: index.md
+- Авторизация: auth.md
+- Окружения: env.md
+- "Протокол: rest": rest.md
+- "Протокол: streaming": marketdata.md
+- FAQ: faq.md
