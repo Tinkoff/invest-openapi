@@ -371,10 +371,10 @@
 <p>Это сделано для того, чтобы обезопасить процесс тестирования и случайно не начать торговать на бирже.</p>
 <p>При этом streaming market-data может работать с любыми видами токенов.</p>
 <h2 id="production">Production</h2>
-<p>REST: <code>{{GATEWAY_URL}}</code></p>
-<p>Streaming: <code>{{MARKET_DATA_URL}}</code></p>
+<p>REST: <code>https://api-invest.tinkoff.ru/openapi/</code></p>
+<p>Streaming: <code>wss://api-invest.tinkoff.ru/openapi/md/v1/md-openapi/ws</code></p>
 <h2 id="sandbox">Sandbox</h2>
-<p>REST: <code>{{GATEWAY_URL}}sandbox</code></p>
+<p>REST: <code>https://api-invest.tinkoff.ru/openapi/sandbox</code></p>
 <p>Sandbox позволяет вам попробовать свои торговые стратегии, при этом не тратя реальные средства. Протокол взаимодействия полностью совпадает с Production окружением.</p>
 <p>Ограничения:</p>
 <ul>
@@ -384,7 +384,7 @@
 <li>Комиссии при покупке/продаже не учитываются</li>
 <li>Доходность всегда считается нулевой</li>
 </ul>
-<p>Для того чтобы начать использовать Sandbox, необходимо вызвать <a href="{{GATEWAY_URL}}docs/swagger-ui/index.html#/sandbox/post_sandbox_register">метод регистрации</a></p>
+<p>Для того чтобы начать использовать Sandbox, необходимо вызвать <a href="https://api-invest.tinkoff.ru/openapi/docs/swagger-ui/index.html#/sandbox/post_sandbox_register">метод регистрации</a></p>
 <h3 id="sandbox_1">Управление Sandbox</h3>
 <p><code>sandbox/register</code> - регистрация в sandbox, создание валютных позиций</p>
 <p><code>sandbox/currencies/balance</code> - выставление баланса по валютным позициям</p>

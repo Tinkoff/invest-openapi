@@ -6,6 +6,7 @@ theme:
   palette:
     primary: black
     accent: yellow
+  # custom_dir: swagger-iu/
 
 nav:
 - Начало работы: index.md

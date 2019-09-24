@@ -38,7 +38,7 @@ import (
 const (
     token   = "just_place_token_here"
     timeout = time.Second * 3
-    url     = "{{GATEWAY_URL}}sandbox/sandbox/register"
+    url     = "https://api-invest.tinkoff.ru/openapi/sandbox/sandbox/register"
 )
 
 func main() {

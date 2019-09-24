@@ -8,13 +8,13 @@
 
 ## Production
 
-REST: `{{GATEWAY_URL}}`
+REST: `https://api-invest.tinkoff.ru/openapi/`
 
-Streaming: `{{MARKET_DATA_URL}}`
+Streaming: `wss://api-invest.tinkoff.ru/openapi/md/v1/md-openapi/ws`
 
 ## Sandbox
 
-REST: `{{GATEWAY_URL}}sandbox`
+REST: `https://api-invest.tinkoff.ru/openapi/sandbox`
 
 Sandbox позволяет вам попробовать свои торговые стратегии, при этом не тратя реальные средства. Протокол взаимодействия полностью совпадает с Production окружением.
 
@@ -26,7 +26,7 @@ Sandbox позволяет вам попробовать свои торговы
 * Комиссии при покупке/продаже не учитываются
 * Доходность всегда считается нулевой
 
-Для того чтобы начать использовать Sandbox, необходимо вызвать [метод регистрации]({{GATEWAY_URL}}docs/swagger-ui/index.html#/sandbox/post_sandbox_register)
+Для того чтобы начать использовать Sandbox, необходимо вызвать [метод регистрации](https://api-invest.tinkoff.ru/openapi/docs/swagger-ui/index.html#/sandbox/post_sandbox_register)
 
 ### Управление Sandbox
 

@@ -415,14 +415,14 @@ paths:
                 $ref: "#/components/schemas/Error"
 
 servers:
-  - url: {{GATEWAY_URL}}
+  - url: https://api-invest.tinkoff.ru/openapi/
     description: "Работа с биржей"
-  - url: {{GATEWAY_URL}}sandbox/
+  - url: https://api-invest.tinkoff.ru/openapi/sandbox/
     description: "Работа в sandbox"
 
 externalDocs:
   description: Документация OpenApi
-  url: {{GATEWAY_URL}}docs/
+  url: https://api-invest.tinkoff.ru/openapi/docs/
 
 components:
   securitySchemes:

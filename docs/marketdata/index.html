@@ -729,7 +729,7 @@ import (
     &quot;github.com/gorilla/websocket&quot;
 )
 
-var addr = flag.String(&quot;addr&quot;, &quot;{{MARKET_DATA_URL}}&quot;, &quot;http service address&quot;)
+var addr = flag.String(&quot;addr&quot;, &quot;wss://api-invest.tinkoff.ru/openapi/md/v1/md-openapi/ws&quot;, &quot;http service address&quot;)
 var token = flag.String(&quot;token&quot;, &quot;&quot;, &quot;API token&quot;)
 
 func main() {

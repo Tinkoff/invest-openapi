@@ -213,7 +213,7 @@ import (
     "github.com/gorilla/websocket"
 )
 
-var addr = flag.String("addr", "{{MARKET_DATA_URL}}", "http service address")
+var addr = flag.String("addr", "wss://api-invest.tinkoff.ru/openapi/md/v1/md-openapi/ws", "http service address")
 var token = flag.String("token", "", "API token")
 
 func main() {
