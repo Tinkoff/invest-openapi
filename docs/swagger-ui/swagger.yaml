@@ -1,0 +1,909 @@
+openapi: 3.0.0
+info:
+  description: tinkoff.ru/invest OpenAPI.
+  version: 1.0.0
+  title: OpenAPI
+  termsOfService: "#"
+  contact:
+    email: n.v.melnikov@tinkoff.ru
+tags:
+  - name: sandbox
+    description: Операция в sandbox
+  - name: orders
+    description: Операции заявок
+  - name: portfolio
+    description: Операции с портфелем пользователя
+  - name: market
+    description: Получении информации по бумагам
+  - name: operations
+    description: Получении информации по операциям
+paths:
+  /sandbox/register:
+    post:
+      tags:
+        - sandbox
+      summary: Регистрация клиента в sandbox
+      description: Создание валютные позиций для клиента
+      security:
+        - sso_auth: []
+      responses:
+        "200":
+          description: Успешный ответ
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Empty"
+        "500":
+          description: Ошибка запроса
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+  /sandbox/currencies/balance:
+    post:
+      tags:
+        - sandbox
+      summary: Выставление баланса по валютным позициям
+      security:
+        - sso_auth: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/SandboxSetCurrencyBalanceRequest"
+        description: Запрос на выставление баланса по валютным позициям
+        required: true
+      responses:
+        "200":
+          description: Успешный ответ
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Empty"
+        "500":
+          description: Ошибка запроса
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+  /sandbox/positions/balance:
+    post:
+      tags:
+        - sandbox
+      summary: Выставление баланса по инструментным позициям
+      security:
+        - sso_auth: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/SandboxSetPositionBalanceRequest"
+        description: Запрос на выставление баланса по инструментным позициям
+        required: true
+      responses:
+        "200":
+          description: Успешный ответ
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Empty"
+        "500":
+          description: Ошибка запроса
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+  /sandbox/clear:
+    post:
+      tags:
+        - sandbox
+      summary: Удаление всех позиций
+      description: Удаление всех позиций клиента
+      security:
+        - sso_auth: []
+      responses:
+        "200":
+          description: Успешный ответ
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Empty"
+        "500":
+          description: Ошибка запроса
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+  /orders:
+    get:
+      tags:
+        - orders
+      summary: Получение списка активных заявок
+      security:
+        - sso_auth: []
+      responses:
+        "200":
+          description: Список заявок
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/OrdersResponse"
+        "500":
+          description: Инструмент не найден
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+  /orders/limit-order:
+    post:
+      tags:
+        - orders
+      summary: Создание лимитной заявки
+      security:
+        - sso_auth: []
+      parameters:
+        - name: figi
+          in: query
+          required: true
+          description: FIGI инструмента
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/LimitOrderRequest"
+        required: true
+      responses:
+        "200":
+          description: Созданная заявка
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/LimitOrderResponse"
+        "500":
+          description: Ошибка запроса
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+  /orders/cancel:
+    post:
+      tags:
+        - orders
+      summary: Отмена заявки
+      security:
+        - sso_auth: []
+      parameters:
+        - name: orderId
+          in: query
+          required: true
+          description: ID заявки
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Empty"
+      responses:
+        "200":
+          description: Успешный ответ
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Empty"
+        "500":
+          description: Ошибка запроса
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+  /operations:
+    get:
+      tags:
+        - operations
+      summary: Получение списка операций
+      security:
+        - sso_auth: []
+      parameters:
+        - name: from
+          in: query
+          required: true
+          description: Начало временного промежутка
+          schema:
+            type: string
+            format: date
+        - name: interval
+          in: query
+          required: true
+          description: Длительность временного промежутка
+          schema:
+            $ref: '#/components/schemas/OperationInterval'
+        - name: figi
+          in: query
+          required: false
+          description: Figi инструмента для фильтрации
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Список операций
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/OperationsResponse"
+        "500":
+          description: Брокерский счет не найден
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+  /portfolio:
+    get:
+      tags:
+        - portfolio
+      summary: Получение портфеля клиента
+      security:
+        - sso_auth: []
+      responses:
+        "200":
+          description: Успешный ответ
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PortfolioResponse"
+        "500":
+          description: Инструмент не найден
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+  /portfolio/currencies:
+    get:
+      tags:
+        - portfolio
+      summary: Получение валютных активов клиента
+      security:
+        - sso_auth: []
+      responses:
+        "200":
+          description: Успешный ответ
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PortfolioCurrenciesResponse"
+        "500":
+          description: Инструмент не найден
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+  /market/stocks:
+    get:
+      tags:
+        - market
+      summary: Получение списка акций
+      security:
+        - sso_auth: []
+      responses:
+        "200":
+          description: Успешный ответ
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/MarketInstrumentListResponse"
+        "500":
+          description: Инструмент не найден
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+  /market/bonds:
+    get:
+      tags:
+        - market
+      summary: Получение списка облигаций
+      security:
+        - sso_auth: []
+      responses:
+        "200":
+          description: Успешный ответ
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/MarketInstrumentListResponse"
+        "500":
+          description: Инструмент не найден
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+  /market/etfs:
+    get:
+      tags:
+        - market
+      summary: Получение списка ETF
+      security:
+        - sso_auth: []
+      responses:
+        "200":
+          description: Успешный ответ
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/MarketInstrumentListResponse"
+        "500":
+          description: Инструмент не найден
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+  /market/currencies:
+    get:
+      tags:
+        - market
+      summary: Получение списка валютных пар
+      security:
+        - sso_auth: []
+      responses:
+        "200":
+          description: Успешный ответ
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/MarketInstrumentListResponse"
+        "500":
+          description: Инструмент не найден
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+  /market/search/by-figi:
+    get:
+      tags:
+        - market
+      summary: Получение инструмента по FIGI
+      security:
+        - sso_auth: []
+      parameters:
+        - name: figi
+          in: query
+          required: true
+          description: FIGI
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Успешный ответ
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/MarketInstrumentResponse"
+        "500":
+          description: Инструмент не найден
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+  /market/search/by-ticker:
+    get:
+      tags:
+        - market
+      summary: Получение инструмента по тикеру
+      security:
+        - sso_auth: []
+      parameters:
+        - name: ticker
+          in: query
+          required: true
+          description: Тикер инструмента
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Успешный ответ
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/MarketInstrumentListResponse"
+        "500":
+          description: Инструмент не найден
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+
+servers:
+  - url: {{GATEWAY_URL}}
+    description: "Работа с биржей"
+  - url: {{GATEWAY_URL}}sandbox/
+    description: "Работа в sandbox"
+
+externalDocs:
+  description: Документация OpenApi
+  url: {{GATEWAY_URL}}docs/
+
+components:
+  securitySchemes:
+    sso_auth:
+      type: http
+      scheme: bearer
+
+  schemas:
+    Empty:
+      type: object
+      required:
+        - trackingId
+        - payload
+        - status
+      properties:
+        trackingId:
+          type: string
+        payload:
+          type: object
+        status:
+          type: string
+          default: Ok
+    Error:
+      type: object
+      required:
+        - trackingId
+        - payload
+        - status
+      properties:
+        trackingId:
+          type: string
+        status:
+          type: string
+          default: Error
+        payload:
+          type: object
+          properties:
+            message:
+              type: string
+            code:
+              type: string
+    PortfolioResponse:
+      type: object
+      required:
+        - trackingId
+        - payload
+        - status
+      properties:
+        trackingId:
+          type: string
+        status:
+          type: string
+          default: Ok
+        payload:
+          $ref: "#/components/schemas/Portfolio"
+    Portfolio:
+      type: object
+      required:
+        - positions
+      properties:
+        positions:
+          type: array
+          items:
+            $ref: "#/components/schemas/PortfolioPosition"
+    PortfolioCurrenciesResponse:
+      type: object
+      required:
+        - trackingId
+        - payload
+        - status
+      properties:
+        trackingId:
+          type: string
+        status:
+          type: string
+          default: Ok
+        payload:
+          $ref: "#/components/schemas/Currencies"
+    Currencies:
+      type: object
+      required:
+        - currencies
+      properties:
+        currencies:
+          type: array
+          items:
+            $ref: "#/components/schemas/CurrencyPosition"
+    CurrencyPosition:
+      type: object
+      required:
+        - currency
+        - balance
+        - blocked
+      properties:
+        currency:
+          $ref: "#/components/schemas/Currency"
+        balance:
+          type: number
+          format: double
+        blocked:
+          type: number
+          format: double
+    PortfolioPosition:
+      type: object
+      required:
+        - figi
+        - balance
+        - instrumentType
+        - lots
+      properties:
+        figi:
+          type: string
+        ticker:
+          type: string
+        isin:
+          type: string
+        instrumentType:
+          $ref: "#/components/schemas/InstrumentType"
+        balance:
+          type: number
+          format: double
+        blocked:
+          type: number
+          format: double
+        expectedYield:
+          $ref: "#/components/schemas/MoneyAmount"
+        lots:
+          type: integer
+          format: int32
+    MoneyAmount:
+      type: object
+      required:
+        - currency
+        - value
+      properties:
+        currency:
+          $ref: '#/components/schemas/Currency'
+        value:
+          type: number
+          format: double
+    OperationsResponse:
+      type: object
+      required:
+        - trackingId
+        - status
+        - payload
+      properties:
+        trackingId:
+          type: string
+        status:
+          type: string
+          default: Ok
+        payload:
+          $ref: "#/components/schemas/Operations"
+
+    Operations:
+      type: object
+      required:
+        - operations
+      properties:
+        operations:
+          type: array
+          items:
+            $ref: '#/components/schemas/Operation'
+
+    OperationTrade:
+      type: object
+      required:
+        - tradeId
+        - date
+        - quantity
+        - price
+      properties:
+        tradeId:
+          type: string
+        date:
+          type: string
+          format: 'date-time'
+          description: "ISO8601"
+          example: "2019-08-19T18:38:33.131642+03:00"
+        price:
+          type: number
+          format: double
+        quantity:
+          type: integer
+          format: int32
+
+    Operation:
+      type: object
+      required:
+        - id
+        - status
+        - currency
+        - payment
+        - isMarginCall
+        - date
+      properties:
+        id:
+          type: string
+        status:
+          $ref: "#/components/schemas/OperationStatus"
+        trades:
+          type: array
+          items:
+            $ref: "#/components/schemas/OperationTrade"
+        commission:
+          $ref: '#/components/schemas/MoneyAmount'
+        currency:
+          $ref: '#/components/schemas/Currency'
+        payment:
+          type: number
+          format: double
+        price:
+          type: number
+          format: double
+        quantity:
+          type: integer
+          format: int32
+        figi:
+          type: string
+        instrumentType:
+          $ref: '#/components/schemas/InstrumentType'
+        isMarginCall:
+          type: boolean
+        date:
+          type: string
+          format: 'date-time'
+          description: "ISO8601"
+          example: "2019-08-19T18:38:33.131642+03:00"
+        operationType:
+          $ref: "#/components/schemas/OperationTypeWithCommission"
+
+    OrdersResponse:
+      type: object
+      required:
+        - trackingId
+        - status
+        - payload
+      properties:
+        trackingId:
+          type: string
+        status:
+          type: string
+          default: Ok
+        payload:
+          type: array
+          items:
+            $ref: "#/components/schemas/Order"
+    Order:
+      type: object
+      required:
+        - orderId
+        - figi
+        - operation
+        - status
+        - requestedLots
+        - executedLots
+        - type
+        - price
+      properties:
+        orderId:
+          type: string
+        figi:
+          type: string
+        operation:
+          $ref: "#/components/schemas/OperationType"
+        status:
+          $ref: "#/components/schemas/OrderStatus"
+        requestedLots:
+          type: integer
+          format: int32
+        executedLots:
+          type: integer
+          format: int32
+        type:
+          $ref: "#/components/schemas/OrderType"
+        price:
+          type: number
+          format: double
+    LimitOrderRequest:
+      type: object
+      required:
+        - operation
+        - lots
+        - price
+      properties:
+        lots:
+          type: integer
+          format: int32
+        operation:
+          $ref: "#/components/schemas/OperationType"
+        price:
+          type: number
+          format: double
+    LimitOrderResponse:
+      type: object
+      required:
+        - trackingId
+        - status
+        - payload
+      properties:
+        trackingId:
+          type: string
+        status:
+          type: string
+          default: Ok
+        payload:
+          $ref: "#/components/schemas/PlacedLimitOrder"
+    PlacedLimitOrder:
+      type: object
+      required:
+        - orderId
+        - operation
+        - status
+        - requestedLots
+        - executedLots
+      properties:
+        orderId:
+          type: string
+        operation:
+          $ref: "#/components/schemas/OperationType"
+        status:
+          $ref: '#/components/schemas/OrderStatus'
+        rejectReason:
+          type: string
+        requestedLots:
+          type: integer
+        executedLots:
+          type: integer
+        commission:
+          $ref: "#/components/schemas/MoneyAmount"
+    OperationType:
+      type: string
+      enum:
+        - Buy
+        - Sell
+    OperationTypeWithCommission:
+      type: string
+      enum:
+        - Buy
+        - Sell
+        - BrokerCommission
+        - ExchangeCommission
+        - ServiceCommission
+        - MarginCommission
+
+    OperationStatus:
+      description: Статус заявки
+      type: string
+      enum:
+        - Done
+        - Decline
+        - Progress
+
+
+    OrderStatus:
+      description: Статус заявки
+      type: string
+      enum:
+        - New
+        - PartiallyFill
+        - Fill
+        - Cancelled
+        - Replaced
+        - PendingCancel
+        - Rejected
+        - PendingReplace
+        - PendingNew
+    OrderType:
+      description: Тип заявки
+      type: string
+      enum:
+        - Limit
+        - Market
+    SandboxSetCurrencyBalanceRequest:
+      type: object
+      required:
+        - currency
+        - balance
+      properties:
+        currency:
+          $ref: "#/components/schemas/SandboxCurrency"
+        balance:
+          type: number
+          format: double
+    SandboxSetPositionBalanceRequest:
+      type: object
+      required:
+        - currency
+        - balance
+      properties:
+        figi:
+          type: string
+        balance:
+          type: number
+          format: double
+    MarketInstrumentListResponse:
+      type: object
+      required:
+        - trackingId
+        - payload
+        - status
+      properties:
+        trackingId:
+          type: string
+        status:
+          type: string
+          default: Ok
+        payload:
+          $ref: "#/components/schemas/MarketInstrumentList"
+    MarketInstrumentList:
+      type: object
+      required:
+        - total
+        - instruments
+      properties:
+        total:
+          type: number
+          format: int32
+        instruments:
+          type: array
+          items:
+            $ref: "#/components/schemas/MarketInstrument"
+    MarketInstrumentResponse:
+      type: object
+      required:
+        - trackingId
+        - payload
+        - status
+      properties:
+        trackingId:
+          type: string
+        status:
+          type: string
+          default: Ok
+        payload:
+          $ref: "#/components/schemas/MarketInstrument"
+    MarketInstrument:
+      type: object
+      required:
+        - figi
+        - ticker
+        - lot
+      properties:
+        figi:
+          type: string
+        ticker:
+          type: string
+        isin:
+          type: string
+        minPriceIncrement:
+          type: number
+          format: double
+        lot:
+          type: integer
+          format: int32
+        currency:
+          $ref: '#/components/schemas/Currency'
+    SandboxCurrency:
+      type: string
+      enum:
+        - RUB
+        - USD
+        - EUR
+    Currency:
+      type: string
+      enum:
+        - RUB
+        - USD
+        - EUR
+    OperationInterval:
+      type: string
+      enum:
+        - 1day
+        - 7days
+        - 14days
+        - 30days
+    InstrumentType:
+      type: string
+      enum:
+        - Stock
+        - Currency
+        - Bond
+        - Etf
