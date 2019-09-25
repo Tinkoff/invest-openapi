@@ -213,13 +213,18 @@ paths:
           description: Начало временного промежутка
           schema:
             type: string
-            format: date
-        - name: interval
+            format: 'date-time'
+            description: "ISO8601"
+            example: "2019-08-19T18:38:33.131642+03:00"
+        - name: to
           in: query
           required: true
-          description: Длительность временного промежутка
+          description: Конец временного промежутка
           schema:
-            $ref: '#/components/schemas/OperationInterval'
+            type: string
+            format: 'date-time'
+            description: "ISO8601"
+            example: "2019-08-19T18:38:33.131642+03:00"
         - name: figi
           in: query
           required: false
@@ -893,13 +898,6 @@ components:
         - RUB
         - USD
         - EUR
-    OperationInterval:
-      type: string
-      enum:
-        - 1day
-        - 7days
-        - 14days
-        - 30days
     InstrumentType:
       type: string
       enum:
