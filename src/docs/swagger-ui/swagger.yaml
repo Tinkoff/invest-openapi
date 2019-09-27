@@ -364,6 +364,59 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/Error"
+
+  /market/candles:
+    get:
+      tags:
+        - market
+      summary: Получение исторических свечей по FIGI
+      security:
+        - sso_auth: []
+      parameters:
+        - name: figi
+          in: query
+          required: true
+          description: FIGI
+          schema:
+            type: string
+        - name: from
+          in: query
+          required: true
+          description: Начало временного промежутка
+          schema:
+            type: string
+            format: 'date-time'
+            description: "ISO8601"
+            example: "2019-08-19T18:38:33.131642+03:00"
+        - name: to
+          in: query
+          required: true
+          description: Конец временного промежутка
+          schema:
+            type: string
+            format: 'date-time'
+            description: "ISO8601"
+            example: "2019-08-19T18:38:33.131642+03:00"
+        - name: interval
+          in: query
+          required: true
+          description: Интервал свечи
+          schema:
+            $ref: '#/components/schemas/CandleResolution'
+      responses:
+        "200":
+          description: Успешный ответ
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CandlesResponse"
+        "500":
+          description: Инструмент не найден
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+  
   /market/search/by-figi:
     get:
       tags:
@@ -568,6 +621,88 @@ components:
         value:
           type: number
           format: double
+
+  CandlesResponse:
+      type: object
+      required:
+        - trackingId
+        - status
+        - payload
+      properties:
+        trackingId:
+          type: string
+        status:
+          type: string
+          default: Ok
+        payload:
+          $ref: "#/components/schemas/Candles"
+
+    Candles:
+      type: object
+      required:
+        - candles
+        - figi
+        - interval
+      properties:
+        figi:
+          type: string
+        interval:
+          $ref: '#/components/schemas/CandleResolution'
+        candles:
+          type: array
+          items:
+            $ref: '#/components/schemas/Candle'
+
+    Candle:
+      type: object
+      required:
+        - figi
+        - interval
+        - time
+        - o
+        - c
+        - h
+        - l
+        - v
+      properties:
+        figi:
+          type: string
+        interval:
+          $ref: '#/components/schemas/CandleResolution'
+        o:
+          type: number
+          format: double
+        c:
+          type: number
+          format: double
+        h:
+          type: number
+          format: double
+        l:
+          type: number
+          format: double
+        v:
+          type: integer
+          format: int32
+        time:
+          type: string
+          format: 'date-time'
+          description: "ISO8601"
+          example: "2019-08-19T18:38:33.131642+03:00"
+
+    CandleResolution:
+      description: Интервал свечи
+      type: string
+      enum:
+        - 1min
+        - 2min
+        - 3min
+        - 5min
+        - 10min
+        - 15min
+        - 30min
+        - hour
+
     OperationsResponse:
       type: object
       required:
