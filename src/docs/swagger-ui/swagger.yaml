@@ -515,7 +515,6 @@ components:
       required:
         - currency
         - balance
-        - blocked
       properties:
         currency:
           $ref: "#/components/schemas/Currency"
