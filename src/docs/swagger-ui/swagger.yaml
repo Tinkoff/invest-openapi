@@ -1130,12 +1130,14 @@ components:
           default: Ok
         payload:
           $ref: "#/components/schemas/MarketInstrument"
+          
     MarketInstrument:
       type: object
       required:
         - figi
         - ticker
         - lot
+        - name
       properties:
         figi:
           type: string
@@ -1151,6 +1153,9 @@ components:
           format: int32
         currency:
           $ref: '#/components/schemas/Currency'
+        name:
+          type: string
+
     SandboxCurrency:
       type: string
       enum:
