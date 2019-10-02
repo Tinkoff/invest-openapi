@@ -365,6 +365,41 @@ paths:
               schema:
                 $ref: "#/components/schemas/Error"
 
+  /market/orderbook:
+    get:
+      tags:
+        - market
+      summary: Получение исторических стакана по FIGI
+      security:
+        - sso_auth: []
+      parameters:
+        - name: figi
+          in: query
+          required: true
+          description: FIGI
+          schema:
+            type: string
+        - name: depth
+          in: query
+          required: true
+          description: Глубина стакана [1..20]
+          schema:
+            type: integer
+            format: int32
+      responses:
+        "200":
+          description: Успешный ответ
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/OrderbookResponse"
+        "500":
+          description: Инструмент не найден
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"            
+
   /market/candles:
     get:
       tags:
@@ -573,7 +608,6 @@ components:
       required:
         - currency
         - balance
-        - blocked
       properties:
         currency:
           $ref: "#/components/schemas/Currency"
@@ -621,6 +655,75 @@ components:
         value:
           type: number
           format: double
+
+  OrderbookResponse:
+      type: object
+      required:
+        - trackingId
+        - status
+        - payload
+      properties:
+        trackingId:
+          type: string
+        status:
+          type: string
+          default: Ok
+        payload:
+          $ref: "#/components/schemas/Orderbook"
+
+  Orderbook:
+    type: object
+    required:
+      - figi
+      - depth
+      - bids
+      - asks
+      - tradeStatus
+      - minPriceIncrement
+    properties:
+      figi:
+        type: string
+      depth:
+        type: integer
+        format: int32
+      bids:
+        type: array
+        items:
+          $ref: '#/components/schemas/OrderResponse'
+      asks:
+        type: array
+        items:
+          $ref: '#/components/schemas/OrderResponse'
+      tradeStatus:
+        $ref: '#/components/schemas/TradeStatus'
+      minPriceIncrement:
+        type: number
+        format: double
+      lastPrice:
+        type: number
+        format: double
+      closePrice:
+        type: number
+        format: double
+      limitUp:
+        type: number
+        format: double
+      limitDown:
+        type: number
+        format: double
+
+  OrderResponse:
+      type: object
+      required:
+        - price
+        - quantity
+      properties:
+        price:
+          type: number
+          format: double
+        quantity:
+          type: integer
+          format: int32
 
   CandlesResponse:
       type: object
@@ -894,11 +997,19 @@ components:
           type: integer
         commission:
           $ref: "#/components/schemas/MoneyAmount"
+
+    TradeStatus:
+      type: string
+      enum:
+        - NormalTrading
+        - NotAvailableForTrading
+
     OperationType:
       type: string
       enum:
         - Buy
         - Sell
+        
     OperationTypeWithCommission:
       type: string
       enum:
@@ -908,6 +1019,20 @@ components:
         - ExchangeCommission
         - ServiceCommission
         - MarginCommission
+        - OtherCommission
+        - PayIn
+        - PayOut
+        - Tax
+        - TaxLucre
+        - TaxDividend
+        - TaxCoupon
+        - TaxBack
+        - Repayment
+        - PartRepayment
+        - Coupon
+        - Dividend
+        - SecurityIn
+        - SecurityOut
 
     OperationStatus:
       description: Статус заявки
