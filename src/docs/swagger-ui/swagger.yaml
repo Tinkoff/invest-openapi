@@ -639,11 +639,16 @@ components:
         blocked:
           type: number
           format: double
-        expectedYield:
-          $ref: "#/components/schemas/MoneyAmount"
         lots:
           type: integer
           format: int32
+        expectedYield:
+          $ref: "#/components/schemas/MoneyAmount"
+        averagePositionPrice:
+          $ref: "#/components/schemas/MoneyAmount"
+        averagePositionPriceNoNkd:
+          $ref: "#/components/schemas/MoneyAmount"
+
     MoneyAmount:
       type: object
       required:
