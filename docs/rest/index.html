@@ -291,13 +291,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#_2" title="Пример генерации" class="md-nav__link">
-    Пример генерации
-  </a>
-  
-</li>
-      
       
       
       
@@ -360,13 +353,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#_2" title="Пример генерации" class="md-nav__link">
-    Пример генерации
-  </a>
-  
-</li>
-      
       
       
       
@@ -389,14 +375,8 @@
                 <h1 id="rest-">REST-протокол</h1>
 <p>Документация: <a href="https://tinkoffcreditsystems.github.io/invest-openapi/swagger-ui/">Swagger</a></p>
 <h2 id="_1">Генерация</h2>
-<p>REST-api использует OpenApi 3.0.0, для генерации клиентов необходимо использовать новую версию swagger-gen.</p>
-<h2 id="_2">Пример генерации</h2>
-<p><code>https://hub.docker.com/r/swaggerapi/swagger-codegen-cli-v3/tags</code></p>
-<pre><code class="shell">docker run --rm -v ${PWD}:/local swaggerapi/swagger-codegen-cli-v3:3.0.10 generate \
-    -i https://api-invest.tinkoff.ru/openapi/docs/swagger-ui/swagger.yaml \
-    -l go \
-    -o /local/out/go
-</code></pre>
+<p>REST-api использует OpenApi 3.0.0, для генерации клиентов необходимо использовать новую версию <a href="https://github.com/swagger-api/swagger-codegen/tree/3.0.0">swagger-gen</a>.</p>
+<p>swagger.yaml доступен по адресу <code>https://tinkoffcreditsystems.github.io/invest-openapi/swagger-ui/swagger.yaml</code>.</p>
                 
                   
                 
