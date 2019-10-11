@@ -14,15 +14,24 @@ Open API — http-интерфейс для взаимодействия с то
 
 Если вы встретили неточность или хотели бы что-то дополнить, то мы будем рады принять от вас пулл реквест.
 
-Чтобы собрать документацию, необходимо выполнить `./build.sh`, после чего будет обновлена директория `docs/`
+# Официальные SDK
 
+[java](https://github.com/TinkoffCreditSystems/invest-openapi-java-sdk)
 
-# Полезные библиотеки
+[c#](https://github.com/TinkoffCreditSystems/invest-openapi-csharp-sdk)
 
-[java-sdk](https://github.com/TinkoffCreditSystems/invest-openapi-java-sdk)
+# Не официальные SDK
+
+[python](https://github.com/Awethon/open-api-python-client)
+
+[php](https://github.com/jamesRUS52/tinkoff-invest)
 
 # Контакты
 
 `openapi_invest@tinkoff.ru`
 
 `n.v.melnikov@tinkoff.ru`
+
+# Полезные ссылки
+
+[telegram-канал](https://t.me/tinkoffinvestopenapi)

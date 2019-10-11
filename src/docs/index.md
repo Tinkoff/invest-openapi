@@ -8,6 +8,18 @@ Open API позволяет вам выставлять лимитные зая�
 
 openapi_invest@tinkoff.ru 
 
-### SDK
+### Официальные SDK
 
-[java-sdk](https://github.com/TinkoffCreditSystems/invest-openapi-java-sdk)
+[java](https://github.com/TinkoffCreditSystems/invest-openapi-java-sdk)
+
+[c#](https://github.com/TinkoffCreditSystems/invest-openapi-csharp-sdk)
+
+### Не официальные SDK
+
+[python](https://github.com/Awethon/open-api-python-client)
+
+[php](https://github.com/jamesRUS52/tinkoff-invest)
+
+### Полезные ссылки
+
+[telegram-канал](https://t.me/tinkoffinvestopenapi)
