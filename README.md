@@ -31,3 +31,7 @@ Open API — http-интерфейс для взаимодействия с то
 `openapi_invest@tinkoff.ru`
 
 `n.v.melnikov@tinkoff.ru`
+
+# Полезные ссылки
+
+[telegram-канал](https://t.me/tinkoffinvestopenapi)

@@ -19,3 +19,7 @@ openapi_invest@tinkoff.ru
 [python](https://github.com/Awethon/open-api-python-client)
 
 [php](https://github.com/jamesRUS52/tinkoff-invest)
+
+### Полезные ссылки
+
+[telegram-канал](https://t.me/tinkoffinvestopenapi)
