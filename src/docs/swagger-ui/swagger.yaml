@@ -661,89 +661,89 @@ components:
           type: number
           format: double
 
-  OrderbookResponse:
+    OrderbookResponse:
+        type: object
+        required:
+          - trackingId
+          - status
+          - payload
+        properties:
+          trackingId:
+            type: string
+          status:
+            type: string
+            default: Ok
+          payload:
+            $ref: "#/components/schemas/Orderbook"
+
+    Orderbook:
       type: object
       required:
-        - trackingId
-        - status
-        - payload
+        - figi
+        - depth
+        - bids
+        - asks
+        - tradeStatus
+        - minPriceIncrement
       properties:
-        trackingId:
+        figi:
           type: string
-        status:
-          type: string
-          default: Ok
-        payload:
-          $ref: "#/components/schemas/Orderbook"
-
-  Orderbook:
-    type: object
-    required:
-      - figi
-      - depth
-      - bids
-      - asks
-      - tradeStatus
-      - minPriceIncrement
-    properties:
-      figi:
-        type: string
-      depth:
-        type: integer
-        format: int32
-      bids:
-        type: array
-        items:
-          $ref: '#/components/schemas/OrderResponse'
-      asks:
-        type: array
-        items:
-          $ref: '#/components/schemas/OrderResponse'
-      tradeStatus:
-        $ref: '#/components/schemas/TradeStatus'
-      minPriceIncrement:
-        type: number
-        format: double
-      lastPrice:
-        type: number
-        format: double
-      closePrice:
-        type: number
-        format: double
-      limitUp:
-        type: number
-        format: double
-      limitDown:
-        type: number
-        format: double
-
-  OrderResponse:
-      type: object
-      required:
-        - price
-        - quantity
-      properties:
-        price:
-          type: number
-          format: double
-        quantity:
+        depth:
           type: integer
           format: int32
+        bids:
+          type: array
+          items:
+            $ref: '#/components/schemas/OrderResponse'
+        asks:
+          type: array
+          items:
+            $ref: '#/components/schemas/OrderResponse'
+        tradeStatus:
+          $ref: '#/components/schemas/TradeStatus'
+        minPriceIncrement:
+          type: number
+          format: double
+        lastPrice:
+          type: number
+          format: double
+        closePrice:
+          type: number
+          format: double
+        limitUp:
+          type: number
+          format: double
+        limitDown:
+          type: number
+          format: double
 
-  CandlesResponse:
-      type: object
-      required:
-        - trackingId
-        - status
-        - payload
-      properties:
-        trackingId:
-          type: string
-        status:
-          type: string
-          default: Ok
-        payload:
-          $ref: "#/components/schemas/Candles"
+    OrderResponse:
+        type: object
+        required:
+          - price
+          - quantity
+        properties:
+          price:
+            type: number
+            format: double
+          quantity:
+            type: integer
+            format: int32
+
+    CandlesResponse:
+        type: object
+        required:
+          - trackingId
+          - status
+          - payload
+        properties:
+          trackingId:
+            type: string
+          status:
+            type: string
+            default: Ok
+          payload:
+            $ref: "#/components/schemas/Candles"
 
     Candles:
       type: object
