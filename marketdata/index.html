@@ -345,6 +345,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_3" title="Сообщения об ошибке" class="md-nav__link">
+    Сообщения об ошибке
+  </a>
+  
+</li>
+      
       
       
       
@@ -437,6 +444,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_3" title="Сообщения об ошибке" class="md-nav__link">
+    Сообщения об ошибке
+  </a>
+  
+</li>
+      
       
       
       
@@ -460,7 +474,7 @@
 <p>Streaming market-data в качестве протокола транспорта использует WebSocket.</p>
 <h3 id="_2">Ограничения</h3>
 <ul>
-<li>Доступно только 1 tcp-соединение на одного пользователя.</li>
+<li>Доступно 6 tcp-соединений на одного пользователя.</li>
 </ul>
 <h2 id="candlesubscribe">candle:subscribe</h2>
 <p>Подписка на свечи</p>
@@ -755,7 +769,64 @@
 }
 </code></pre>
 
-<h1 id="_3">Описание форматов</h1>
+<h2 id="_3">Сообщения об ошибке</h2>
+<p>К любому запросу можно добавить необязательное поле <em>request_id</em>, которое будет использовано в сообщении об ошибке</p>
+<p>Формат ответа:</p>
+<table>
+<thead>
+<tr>
+<th>Параметр</th>
+<th>Тип</th>
+<th>Обязательность</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>event</td>
+<td>string</td>
+<td>+</td>
+<td>Название события</td>
+</tr>
+<tr>
+<td>payload</td>
+<td>object</td>
+<td>+</td>
+<td>Структура с информацией об ошибке</td>
+</tr>
+<tr>
+<td>payload.error</td>
+<td>string</td>
+<td>+</td>
+<td>Сообщение об ошибке</td>
+</tr>
+<tr>
+<td>payload.request_id</td>
+<td>string</td>
+<td>-</td>
+<td>ID запроса, если передан при запросе</td>
+</tr>
+</tbody>
+</table>
+<p>Пример запроса:</p>
+<pre><code>{
+    &quot;event&quot;: &quot;instrument_info:subscribe&quot;,
+    &quot;request_id&quot;: &quot;123ASD1123&quot;,
+    &quot;figi&quot;: &quot;NOOOOOOO&quot;
+}
+</code></pre>
+
+<p>Пример ошибки:</p>
+<pre><code>{
+    &quot;event&quot;: &quot;error&quot;,
+    &quot;payload&quot;: {
+        &quot;request_id&quot;: &quot;123ASD1123&quot;,
+        &quot;error&quot;: &quot;Subscription instrument_info:subscribe. FIGI NOOOOOOO not found&quot;
+    }
+}
+</code></pre>
+
+<h1 id="_4">Описание форматов</h1>
 <h3 id="interval">Interval</h3>
 <pre><code>(&quot;1min&quot;,&quot;2min&quot;,&quot;3min&quot;,&quot;5min&quot;,&quot;10min&quot;,&quot;15min&quot;,&quot;30min&quot;,&quot;hour&quot;,&quot;2hour&quot;,&quot;4hour&quot;,&quot;day&quot;,&quot;week&quot;,&quot;month&quot;)
 </code></pre>
@@ -764,7 +835,7 @@
 <pre><code>0 &lt; DEPTH &lt;= 20
 </code></pre>
 
-<h1 id="_4">Примеры подключения</h1>
+<h1 id="_5">Примеры подключения</h1>
 <pre><code class="go">package main
 
 import (
