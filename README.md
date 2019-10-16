@@ -20,7 +20,7 @@ Open API — http-интерфейс для взаимодействия с то
 
 [c#](https://github.com/TinkoffCreditSystems/invest-openapi-csharp-sdk)
 
-# Не официальные SDK
+# Неофициальные SDK
 
 [python](https://github.com/Awethon/open-api-python-client)
 
