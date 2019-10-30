@@ -369,7 +369,7 @@ paths:
     get:
       tags:
         - market
-      summary: Получение исторических стакана по FIGI
+      summary: Получение стакана
       security:
         - sso_auth: []
       parameters:
