@@ -285,7 +285,14 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" title="Генерация" class="md-nav__link">
+  <a href="#_1" title="Ограничение количества запросов" class="md-nav__link">
+    Ограничение количества запросов
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" title="Генерация" class="md-nav__link">
     Генерация
   </a>
   
@@ -347,7 +354,14 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" title="Генерация" class="md-nav__link">
+  <a href="#_1" title="Ограничение количества запросов" class="md-nav__link">
+    Ограничение количества запросов
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" title="Генерация" class="md-nav__link">
     Генерация
   </a>
   
@@ -374,7 +388,45 @@
                 
                 <h1 id="rest-">REST-протокол</h1>
 <p>Документация: <a href="https://tinkoffcreditsystems.github.io/invest-openapi/swagger-ui/">Swagger</a></p>
-<h2 id="_1">Генерация</h2>
+<h2 id="_1">Ограничение количества запросов</h2>
+<table>
+<thead>
+<tr>
+<th align="left">Ресурс</th>
+<th align="left">Количество запросов</th>
+<th align="left">Интервал ограничения</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">/sandbox</td>
+<td align="left">120</td>
+<td align="left">1 минута</td>
+</tr>
+<tr>
+<td align="left">/portfolio</td>
+<td align="left">120</td>
+<td align="left">1 минута</td>
+</tr>
+<tr>
+<td align="left">/market</td>
+<td align="left">120</td>
+<td align="left">1 минута</td>
+</tr>
+<tr>
+<td align="left">/orders</td>
+<td align="left">120</td>
+<td align="left">1 минута</td>
+</tr>
+<tr>
+<td align="left">/operations</td>
+<td align="left">120</td>
+<td align="left">1 минута</td>
+</tr>
+</tbody>
+</table>
+<p>При превышении лимита запросов возвращается ошибка <code>429 Error: Too Many Requests</code></p>
+<h2 id="_2">Генерация</h2>
 <p>REST-api использует OpenApi 3.0.0, для генерации клиентов необходимо использовать новую версию <a href="https://github.com/swagger-api/swagger-codegen/tree/3.0.0">swagger-gen</a>.</p>
 <p>swagger.yaml доступен по адресу <code>https://tinkoffcreditsystems.github.io/invest-openapi/swagger-ui/swagger.yaml</code>.</p>
                 
