@@ -795,7 +795,7 @@ components:
         time:
           type: string
           format: 'date-time'
-          description: "ISO8601"
+          description: "yyyy-MM-ddTHH:mm:ss.SSSSSSZ"
           example: "2019-08-19T18:38:33.131642+03:00"
 
     CandleResolution:
@@ -864,7 +864,7 @@ components:
         date:
           type: string
           format: 'date-time'
-          description: "ISO8601"
+          description: "yyyy-MM-ddTHH:mm:ss.SSSSSSZ"
           example: "2019-08-19T18:38:33.131642+03:00"
         price:
           type: number
@@ -913,7 +913,7 @@ components:
         date:
           type: string
           format: 'date-time'
-          description: "ISO8601"
+          description: "yyyy-MM-ddTHH:mm:ss.SSSSSSZ"
           example: "2019-08-19T18:38:33.131642+03:00"
         operationType:
           $ref: "#/components/schemas/OperationTypeWithCommission"
