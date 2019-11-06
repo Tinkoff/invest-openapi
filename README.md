@@ -22,7 +22,7 @@ Open API — http-интерфейс для взаимодействия с то
 
 [go](https://github.com/TinkoffCreditSystems/invest-openapi-go-sdk)
 
-[js](https://github.com/TinkoffCreditSystems/invest-openapi-js-sdk)
+[nodejs](https://github.com/TinkoffCreditSystems/invest-openapi-js-sdk)
 
 # Неофициальные SDK
 

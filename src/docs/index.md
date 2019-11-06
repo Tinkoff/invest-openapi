@@ -16,7 +16,7 @@ openapi_invest@tinkoff.ru
 
 [go](https://github.com/TinkoffCreditSystems/invest-openapi-go-sdk)
 
-[js](https://github.com/TinkoffCreditSystems/invest-openapi-js-sdk)
+[nodejs](https://github.com/TinkoffCreditSystems/invest-openapi-js-sdk)
 
 ### Не официальные SDK
 
