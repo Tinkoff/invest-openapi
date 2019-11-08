@@ -1011,6 +1011,9 @@ components:
           $ref: '#/components/schemas/OrderStatus'
         rejectReason:
           type: string
+        message:
+          description: "Сообщение об ошибке"
+          type: string
         requestedLots:
           type: integer
         executedLots:
