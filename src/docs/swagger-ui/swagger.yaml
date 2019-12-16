@@ -17,22 +17,31 @@ tags:
     description: Получении информации по бумагам
   - name: operations
     description: Получении информации по операциям
+  - name: user
+    description: Получении информации по брокерским счетам
 paths:
   /sandbox/register:
     post:
       tags:
         - sandbox
       summary: Регистрация клиента в sandbox
-      description: Создание валютные позиций для клиента
+      description: Создание счета и валютных позиций для клиента
       security:
         - sso_auth: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/SandboxRegisterRequest"
+        description: Запрос на создание счета и выставление баланса по валютным позициям
+        required: false
       responses:
         "200":
           description: Успешный ответ
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Empty"
+                $ref: "#/components/schemas/SandboxRegisterResponse"
         "500":
           description: Ошибка запроса
           content:
@@ -46,6 +55,13 @@ paths:
       summary: Выставление баланса по валютным позициям
       security:
         - sso_auth: []
+      parameters:
+        - name: agreementId
+          in: query
+          required: false
+          description: Номер договора счета (по умолчанию - Тинькофф)
+          schema:
+            type: string
       requestBody:
         content:
           application/json:
@@ -73,6 +89,13 @@ paths:
       summary: Выставление баланса по инструментным позициям
       security:
         - sso_auth: []
+      parameters:
+        - name: agreementId
+          in: query
+          required: false
+          description: Номер договора счета (по умолчанию - Тинькофф)
+          schema:
+            type: string
       requestBody:
         content:
           application/json:
@@ -93,6 +116,36 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/Error"
+
+  /sandbox/remove:
+    post:
+      tags:
+        - sandbox
+      summary: Удаление счета
+      description: Удаление счета клиента
+      security:
+        - sso_auth: []
+      parameters:
+        - name: agreementId
+          in: query
+          required: false
+          description: Номер договора счета (по умолчанию - Тинькофф)
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Успешный ответ
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Empty"
+        "500":
+          description: Ошибка запроса
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+
   /sandbox/clear:
     post:
       tags:
@@ -121,6 +174,13 @@ paths:
       summary: Получение списка активных заявок
       security:
         - sso_auth: []
+      parameters:
+        - name: agreementId
+          in: query
+          required: false
+          description: Номер договора счета (по умолчанию - Тинькофф)
+          schema:
+            type: string
       responses:
         "200":
           description: Список заявок
@@ -148,6 +208,12 @@ paths:
           description: FIGI инструмента
           schema:
             type: string
+        - name: agreementId
+          in: query
+          required: false
+          description: Номер договора счета (по умолчанию - Тинькофф)
+          schema:
+            type: string          
       requestBody:
         content:
           application/json:
@@ -179,6 +245,12 @@ paths:
           in: query
           required: true
           description: ID заявки
+          schema:
+            type: string
+        - name: agreementId
+          in: query
+          required: false
+          description: Номер договора счета (по умолчанию - Тинькофф)
           schema:
             type: string
       requestBody:
@@ -231,6 +303,12 @@ paths:
           description: Figi инструмента для фильтрации
           schema:
             type: string
+        - name: agreementId
+          in: query
+          required: false
+          description: Номер договора счета (по умолчанию - Тинькофф)
+          schema:
+            type: string
       responses:
         "200":
           description: Список операций
@@ -251,6 +329,13 @@ paths:
       summary: Получение портфеля клиента
       security:
         - sso_auth: []
+      parameters:
+        - name: agreementId
+          in: query
+          required: false
+          description: Номер договора счета (по умолчанию - Тинькофф)
+          schema:
+            type: string
       responses:
         "200":
           description: Успешный ответ
@@ -259,7 +344,7 @@ paths:
               schema:
                 $ref: "#/components/schemas/PortfolioResponse"
         "500":
-          description: Инструмент не найден
+          description: Брокерский счет не найден
           content:
             application/json:
               schema:
@@ -271,6 +356,13 @@ paths:
       summary: Получение валютных активов клиента
       security:
         - sso_auth: []
+      parameters:
+        - name: agreementId
+          in: query
+          required: false
+          description: Номер договора счета (по умолчанию - Тинькофф)
+          schema:
+            type: string        
       responses:
         "200":
           description: Успешный ответ
@@ -279,7 +371,7 @@ paths:
               schema:
                 $ref: "#/components/schemas/PortfolioCurrenciesResponse"
         "500":
-          description: Инструмент не найден
+          description: Брокерский счет не найден
           content:
             application/json:
               schema:
@@ -1174,6 +1266,74 @@ components:
         name:
           type: string
 
+    UserAccountsResponse:
+      type: object
+      required:
+        - trackingId
+        - payload
+        - status
+      properties:
+        trackingId:
+          type: string
+        status:
+          type: string
+          default: Ok
+        payload:
+          $ref: "#/components/schemas/UserAccounts"
+
+    UserAccounts:
+      type: object
+      required:
+        - accounts
+      properties:
+        positions:
+          type: array
+          items:
+            $ref: "#/components/schemas/UserAccount"
+
+    UserAccount:
+      type: object
+      required:
+        - brokerAccountType
+        - agreementId
+      properties:
+        brokerAccountType:
+          $ref: "#/components/schemas/BrokerAccountType"
+        agreementId:
+          type: string
+
+    SandboxRegisterRequest:
+      type: object
+      properties:
+        brokerAccountType:
+          $ref: "#/components/schemas/BrokerAccountType"
+
+    SandboxRegisterResponse:
+      type: object
+      required:
+        - trackingId
+        - payload
+        - status
+      properties:
+        trackingId:
+          type: string
+        status:
+          type: string
+          default: Ok
+        payload:
+          $ref: "#/components/schemas/SandboxAccount"
+
+    SandboxAccount:
+      type: object
+      required:
+        - brokerAccountType
+        - agreementId
+      properties:
+        brokerAccountType:
+          $ref: "#/components/schemas/BrokerAccountType"
+        agreementId:
+          type: string
+
     SandboxCurrency:
       type: string
       enum:
@@ -1193,3 +1353,8 @@ components:
         - Currency
         - Bond
         - Etf
+    BrokerAccountType:
+      type: string
+      enum:
+        - Tinkoff
+        - TinkoffIis
