@@ -1286,7 +1286,7 @@ components:
       required:
         - accounts
       properties:
-        positions:
+        accounts:
           type: array
           items:
             $ref: "#/components/schemas/UserAccount"
