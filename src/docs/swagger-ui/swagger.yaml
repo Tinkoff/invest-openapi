@@ -796,6 +796,11 @@ components:
         minPriceIncrement:
           type: number
           format: double
+          description: "Шаг цены"
+        faceValue:
+          type: number
+          format: double
+          description: "Номинал для облигаций"
         lastPrice:
           type: number
           format: double
@@ -805,9 +810,11 @@ components:
         limitUp:
           type: number
           format: double
+          description: "Верхняя граница цены"
         limitDown:
           type: number
           format: double
+          description: "Нижняя граница цены"
 
     OrderResponse:
         type: object
@@ -1248,6 +1255,7 @@ components:
         - ticker
         - lot
         - name
+        - type
       properties:
         figi:
           type: string
@@ -1258,6 +1266,7 @@ components:
         minPriceIncrement:
           type: number
           format: double
+          description: "Шаг цены"
         lot:
           type: integer
           format: int32
@@ -1265,6 +1274,8 @@ components:
           $ref: '#/components/schemas/Currency'
         name:
           type: string
+        type:
+          $ref: '#/components/schemas/InstrumentType'
 
     UserAccountsResponse:
       type: object
