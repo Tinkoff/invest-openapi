@@ -167,6 +167,45 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/Error"
+  /orders/market-order:
+    post:
+      tags:
+        - orders
+      summary: Создание рыночной заявки
+      security:
+        - sso_auth: []
+      parameters:
+        - name: figi
+          in: query
+          required: true
+          description: FIGI инструмента
+          schema:
+            type: string
+        - name: brokerAccountId
+          in: query
+          required: false
+          description: Уникальный идентификатор счета (по умолчанию - Тинькофф)
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/MarketOrderRequest"
+        required: true
+      responses:
+        "200":
+          description: Созданная заявка
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/MarketOrderResponse"
+        "500":
+          description: Ошибка запроса
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
   /orders/cancel:
     post:
       tags:
@@ -1010,6 +1049,58 @@ components:
         status:
           $ref: '#/components/schemas/OrderStatus'
         rejectReason:
+          type: string
+        message:
+          type: string
+        requestedLots:
+          type: integer
+        executedLots:
+          type: integer
+        commission:
+          $ref: "#/components/schemas/MoneyAmount"
+    MarketOrderRequest:
+      type: object
+      required:
+        - operation
+        - lots
+      properties:
+        lots:
+          type: integer
+          format: int32
+        operation:
+          $ref: "#/components/schemas/OperationType"
+    MarketOrderResponse:
+      type: object
+      required:
+        - trackingId
+        - status
+        - payload
+      properties:
+        trackingId:
+          type: string
+        status:
+          type: string
+          default: Ok
+        payload:
+          $ref: "#/components/schemas/PlacedMarketOrder"
+    PlacedMarketOrder:
+      type: object
+      required:
+        - orderId
+        - operation
+        - status
+        - requestedLots
+        - executedLots
+      properties:
+        orderId:
+          type: string
+        operation:
+          $ref: "#/components/schemas/OperationType"
+        status:
+          $ref: '#/components/schemas/OrderStatus'
+        rejectReason:
+          type: string
+        message:
           type: string
         requestedLots:
           type: integer
