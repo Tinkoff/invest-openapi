@@ -56,10 +56,10 @@ paths:
       security:
         - sso_auth: []
       parameters:
-        - name: agreementId
+        - name: brokerAccountId
           in: query
           required: false
-          description: Номер договора счета (по умолчанию - Тинькофф)
+          description: Уникальный идентификатор счета (по умолчанию - Тинькофф)
           schema:
             type: string
       requestBody:
@@ -90,10 +90,10 @@ paths:
       security:
         - sso_auth: []
       parameters:
-        - name: agreementId
+        - name: brokerAccountId
           in: query
           required: false
-          description: Номер договора счета (по умолчанию - Тинькофф)
+          description: Уникальный идентификатор счета (по умолчанию - Тинькофф)
           schema:
             type: string
       requestBody:
@@ -126,10 +126,10 @@ paths:
       security:
         - sso_auth: []
       parameters:
-        - name: agreementId
+        - name: brokerAccountId
           in: query
           required: false
-          description: Номер договора счета (по умолчанию - Тинькофф)
+          description: Уникальный идентификатор счета (по умолчанию - Тинькофф)
           schema:
             type: string
       responses:
@@ -175,10 +175,10 @@ paths:
       security:
         - sso_auth: []
       parameters:
-        - name: agreementId
+        - name: brokerAccountId
           in: query
           required: false
-          description: Номер договора счета (по умолчанию - Тинькофф)
+          description: Уникальный идентификатор счета (по умолчанию - Тинькофф)
           schema:
             type: string
       responses:
@@ -208,10 +208,10 @@ paths:
           description: FIGI инструмента
           schema:
             type: string
-        - name: agreementId
+        - name: brokerAccountId
           in: query
           required: false
-          description: Номер договора счета (по умолчанию - Тинькофф)
+          description: Уникальный идентификатор счета (по умолчанию - Тинькофф)
           schema:
             type: string          
       requestBody:
@@ -247,10 +247,10 @@ paths:
           description: ID заявки
           schema:
             type: string
-        - name: agreementId
+        - name: brokerAccountId
           in: query
           required: false
-          description: Номер договора счета (по умолчанию - Тинькофф)
+          description: Уникальный идентификатор счета (по умолчанию - Тинькофф)
           schema:
             type: string
       requestBody:
@@ -303,10 +303,10 @@ paths:
           description: Figi инструмента для фильтрации
           schema:
             type: string
-        - name: agreementId
+        - name: brokerAccountId
           in: query
           required: false
-          description: Номер договора счета (по умолчанию - Тинькофф)
+          description: Уникальный идентификатор счета (по умолчанию - Тинькофф)
           schema:
             type: string
       responses:
@@ -330,10 +330,10 @@ paths:
       security:
         - sso_auth: []
       parameters:
-        - name: agreementId
+        - name: brokerAccountId
           in: query
           required: false
-          description: Номер договора счета (по умолчанию - Тинькофф)
+          description: Уникальный идентификатор счета (по умолчанию - Тинькофф)
           schema:
             type: string
       responses:
@@ -357,10 +357,10 @@ paths:
       security:
         - sso_auth: []
       parameters:
-        - name: agreementId
+        - name: brokerAccountId
           in: query
           required: false
-          description: Номер договора счета (по умолчанию - Тинькофф)
+          description: Уникальный идентификатор счета (по умолчанию - Тинькофф)
           schema:
             type: string        
       responses:
@@ -1309,11 +1309,11 @@ components:
       type: object
       required:
         - brokerAccountType
-        - agreementId
+        - brokerAccountId
       properties:
         brokerAccountType:
           $ref: "#/components/schemas/BrokerAccountType"
-        agreementId:
+        brokerAccountId:
           type: string
 
     SandboxRegisterRequest:
@@ -1341,11 +1341,11 @@ components:
       type: object
       required:
         - brokerAccountType
-        - agreementId
+        - brokerAccountId
       properties:
         brokerAccountType:
           $ref: "#/components/schemas/BrokerAccountType"
-        agreementId:
+        brokerAccountId:
           type: string
 
     SandboxCurrency:
