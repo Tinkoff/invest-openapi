@@ -606,6 +606,27 @@ paths:
               schema:
                 $ref: "#/components/schemas/Error"
 
+  /user/accounts:
+    get:
+      tags:
+        - user
+      summary: Получение брокерских счетов клиента
+      security:
+        - sso_auth: []
+      responses:
+        "200":
+          description: Успешный ответ
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/UserAccountsResponse"
+        "500":
+          description: Брокерский счет не найден
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+
 servers:
   - url: https://api-invest.tinkoff.ru/openapi/
     description: "Работа с биржей"
