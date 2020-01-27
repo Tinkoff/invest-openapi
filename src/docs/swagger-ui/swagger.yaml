@@ -1414,7 +1414,7 @@ components:
         - ticker
         - lot
         - name
-        - type
+
       properties:
         figi:
           type: string
