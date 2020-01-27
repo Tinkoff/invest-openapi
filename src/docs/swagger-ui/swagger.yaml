@@ -598,7 +598,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/MarketInstrumentResponse"
+                $ref: "#/components/schemas/SearchMarketInstrumentResponse"
         "500":
           description: Инструмент не найден
           content:
@@ -626,7 +626,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/MarketInstrumentListResponse"
+                $ref: "#/components/schemas/SearchMarketInstrumentResponse"
         "500":
           description: Инструмент не найден
           content:
@@ -1348,6 +1348,21 @@ components:
           items:
             $ref: "#/components/schemas/MarketInstrument"
 
+    SearchMarketInstrumentResponse:
+      type: object
+      required:
+        - trackingId
+        - payload
+        - status
+      properties:
+        trackingId:
+          type: string
+        status:
+          type: string
+          default: Ok
+        payload:
+          $ref: "#/components/schemas/SearchMarketInstrument"
+
     MarketInstrumentResponse:
       type: object
       required:
@@ -1363,7 +1378,7 @@ components:
         payload:
           $ref: "#/components/schemas/MarketInstrument"
 
-    MarketInstrument:
+    SearchMarketInstrument:
       type: object
       required:
         - figi
@@ -1391,6 +1406,33 @@ components:
           type: string
         type:
           $ref: '#/components/schemas/InstrumentType'
+
+    MarketInstrument:
+      type: object
+      required:
+        - figi
+        - ticker
+        - lot
+        - name
+        - type
+      properties:
+        figi:
+          type: string
+        ticker:
+          type: string
+        isin:
+          type: string
+        minPriceIncrement:
+          type: number
+          format: double
+          description: "Шаг цены"
+        lot:
+          type: integer
+          format: int32
+        currency:
+          $ref: '#/components/schemas/Currency'
+        name:
+          type: string
 
     SandboxCurrency:
       type: string
