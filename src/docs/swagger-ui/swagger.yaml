@@ -60,7 +60,7 @@ paths:
         - name: brokerAccountId
           in: query
           required: false
-          description: Номер договора счета (по умолчанию - Тинькофф)
+          description: Номер счета (по умолчанию - Тинькофф)
           schema:
             type: string
       requestBody:
@@ -95,7 +95,7 @@ paths:
         - name: brokerAccountId
           in: query
           required: false
-          description: Номер договора счета (по умолчанию - Тинькофф)
+          description: Номер счета (по умолчанию - Тинькофф)
           schema:
             type: string
       requestBody:
@@ -131,7 +131,7 @@ paths:
         - name: brokerAccountId
           in: query
           required: false
-          description: Номер договора счета (по умолчанию - Тинькофф)
+          description: Номер счета (по умолчанию - Тинькофф)
           schema:
             type: string
       responses:
@@ -160,7 +160,7 @@ paths:
         - name: brokerAccountId
           in: query
           required: false
-          description: Номер договора счета (по умолчанию - Тинькофф)
+          description: Номер счета (по умолчанию - Тинькофф)
           schema:
             type: string
       responses:
@@ -188,7 +188,7 @@ paths:
         - name: brokerAccountId
           in: query
           required: false
-          description: Номер договора счета (по умолчанию - Тинькофф)
+          description: Номер счета (по умолчанию - Тинькофф)
           schema:
             type: string
       responses:
@@ -222,7 +222,7 @@ paths:
         - name: brokerAccountId
           in: query
           required: false
-          description: Номер договора счета (по умолчанию - Тинькофф)
+          description: Номер счета (по умолчанию - Тинькофф)
           schema:
             type: string
       requestBody:
@@ -262,7 +262,7 @@ paths:
         - name: brokerAccountId
           in: query
           required: false
-          description: Номер договора счета (по умолчанию - Тинькофф)
+          description: Номер счета (по умолчанию - Тинькофф)
           schema:
             type: string
       responses:
@@ -314,7 +314,7 @@ paths:
         - name: brokerAccountId
           in: query
           required: false
-          description: Номер договора счета (по умолчанию - Тинькофф)
+          description: Номер счета (по умолчанию - Тинькофф)
           schema:
             type: string
       responses:
@@ -341,7 +341,7 @@ paths:
         - name: brokerAccountId
           in: query
           required: false
-          description: Номер договора счета (по умолчанию - Тинькофф)
+          description: Номер счета (по умолчанию - Тинькофф)
           schema:
             type: string
       responses:
@@ -369,7 +369,7 @@ paths:
         - name: brokerAccountId
           in: query
           required: false
-          description: Номер договора счета (по умолчанию - Тинькофф)
+          description: Номер счета (по умолчанию - Тинькофф)
           schema:
             type: string
       responses:
