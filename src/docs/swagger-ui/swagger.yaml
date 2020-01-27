@@ -17,28 +17,38 @@ tags:
     description: Получении информации по бумагам
   - name: operations
     description: Получении информации по операциям
+  - name: user
+    description: Получении информации по брокерским счетам
 paths:
   /sandbox/register:
     post:
       tags:
         - sandbox
       summary: Регистрация клиента в sandbox
-      description: Создание валютные позиций для клиента
+      description: Создание счета и валютных позиций для клиента
       security:
         - sso_auth: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/SandboxRegisterRequest"
+        description: Запрос на создание счета и выставление баланса по валютным позициям
+        required: false
       responses:
         "200":
           description: Успешный ответ
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Empty"
+                $ref: "#/components/schemas/SandboxRegisterResponse"
         "500":
           description: Ошибка запроса
           content:
             application/json:
               schema:
                 $ref: "#/components/schemas/Error"
+
   /sandbox/currencies/balance:
     post:
       tags:
@@ -46,6 +56,13 @@ paths:
       summary: Выставление баланса по валютным позициям
       security:
         - sso_auth: []
+      parameters:
+        - name: brokerAccountId
+          in: query
+          required: false
+          description: Номер договора счета (по умолчанию - Тинькофф)
+          schema:
+            type: string
       requestBody:
         content:
           application/json:
@@ -66,6 +83,7 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/Error"
+
   /sandbox/positions/balance:
     post:
       tags:
@@ -73,6 +91,13 @@ paths:
       summary: Выставление баланса по инструментным позициям
       security:
         - sso_auth: []
+      parameters:
+        - name: brokerAccountId
+          in: query
+          required: false
+          description: Номер договора счета (по умолчанию - Тинькофф)
+          schema:
+            type: string
       requestBody:
         content:
           application/json:
@@ -93,14 +118,22 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/Error"
-  /sandbox/clear:
+
+  /sandbox/remove:
     post:
       tags:
         - sandbox
-      summary: Удаление всех позиций
-      description: Удаление всех позиций клиента
+      summary: Удаление счета
+      description: Удаление счета клиента
       security:
         - sso_auth: []
+      parameters:
+        - name: brokerAccountId
+          in: query
+          required: false
+          description: Номер договора счета (по умолчанию - Тинькофф)
+          schema:
+            type: string
       responses:
         "200":
           description: Успешный ответ
@@ -114,6 +147,36 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/Error"
+
+  /sandbox/clear:
+    post:
+      tags:
+        - sandbox
+      summary: Удаление всех позиций
+      description: Удаление всех позиций клиента
+      security:
+        - sso_auth: []
+      parameters:
+        - name: brokerAccountId
+          in: query
+          required: false
+          description: Номер договора счета (по умолчанию - Тинькофф)
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Успешный ответ
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Empty"
+        "500":
+          description: Ошибка запроса
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+
   /orders:
     get:
       tags:
@@ -121,6 +184,13 @@ paths:
       summary: Получение списка активных заявок
       security:
         - sso_auth: []
+      parameters:
+        - name: brokerAccountId
+          in: query
+          required: false
+          description: Номер договора счета (по умолчанию - Тинькофф)
+          schema:
+            type: string
       responses:
         "200":
           description: Список заявок
@@ -134,6 +204,7 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/Error"
+
   /orders/limit-order:
     post:
       tags:
@@ -146,6 +217,12 @@ paths:
           in: query
           required: true
           description: FIGI инструмента
+          schema:
+            type: string
+        - name: brokerAccountId
+          in: query
+          required: false
+          description: Номер договора счета (по умолчанию - Тинькофф)
           schema:
             type: string
       requestBody:
@@ -167,6 +244,7 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/Error"
+
   /orders/cancel:
     post:
       tags:
@@ -181,11 +259,12 @@ paths:
           description: ID заявки
           schema:
             type: string
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: "#/components/schemas/Empty"
+        - name: brokerAccountId
+          in: query
+          required: false
+          description: Номер договора счета (по умолчанию - Тинькофф)
+          schema:
+            type: string
       responses:
         "200":
           description: Успешный ответ
@@ -199,6 +278,7 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/Error"
+
   /operations:
     get:
       tags:
@@ -231,6 +311,12 @@ paths:
           description: Figi инструмента для фильтрации
           schema:
             type: string
+        - name: brokerAccountId
+          in: query
+          required: false
+          description: Номер договора счета (по умолчанию - Тинькофф)
+          schema:
+            type: string
       responses:
         "200":
           description: Список операций
@@ -251,6 +337,13 @@ paths:
       summary: Получение портфеля клиента
       security:
         - sso_auth: []
+      parameters:
+        - name: brokerAccountId
+          in: query
+          required: false
+          description: Номер договора счета (по умолчанию - Тинькофф)
+          schema:
+            type: string
       responses:
         "200":
           description: Успешный ответ
@@ -259,11 +352,12 @@ paths:
               schema:
                 $ref: "#/components/schemas/PortfolioResponse"
         "500":
-          description: Инструмент не найден
+          description: Брокерский счет не найден
           content:
             application/json:
               schema:
                 $ref: "#/components/schemas/Error"
+
   /portfolio/currencies:
     get:
       tags:
@@ -271,6 +365,13 @@ paths:
       summary: Получение валютных активов клиента
       security:
         - sso_auth: []
+      parameters:
+        - name: brokerAccountId
+          in: query
+          required: false
+          description: Номер договора счета (по умолчанию - Тинькофф)
+          schema:
+            type: string
       responses:
         "200":
           description: Успешный ответ
@@ -279,11 +380,33 @@ paths:
               schema:
                 $ref: "#/components/schemas/PortfolioCurrenciesResponse"
         "500":
-          description: Инструмент не найден
+          description: Брокерский счет не найден
           content:
             application/json:
               schema:
                 $ref: "#/components/schemas/Error"
+
+  /user/accounts:
+    get:
+      tags:
+        - user
+      summary: Получение брокерских счетов клиента
+      security:
+        - sso_auth: []
+      responses:
+        "200":
+          description: Успешный ответ
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/UserAccountsResponse"
+        "500":
+          description: Брокерский счет не найден
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+
   /market/stocks:
     get:
       tags:
@@ -304,6 +427,7 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/Error"
+
   /market/bonds:
     get:
       tags:
@@ -324,6 +448,7 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/Error"
+
   /market/etfs:
     get:
       tags:
@@ -344,6 +469,7 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/Error"
+
   /market/currencies:
     get:
       tags:
@@ -369,7 +495,7 @@ paths:
     get:
       tags:
         - market
-      summary: Получение стакана
+      summary: Получение исторических стакана по FIGI
       security:
         - sso_auth: []
       parameters:
@@ -398,7 +524,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Error"            
+                $ref: "#/components/schemas/Error"
 
   /market/candles:
     get:
@@ -451,7 +577,7 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/Error"
-  
+
   /market/search/by-figi:
     get:
       tags:
@@ -479,6 +605,7 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/Error"
+
   /market/search/by-ticker:
     get:
       tags:
@@ -557,6 +684,7 @@ components:
               type: string
             code:
               type: string
+
     PortfolioResponse:
       type: object
       required:
@@ -571,6 +699,7 @@ components:
           default: Ok
         payload:
           $ref: "#/components/schemas/Portfolio"
+
     Portfolio:
       type: object
       required:
@@ -580,6 +709,43 @@ components:
           type: array
           items:
             $ref: "#/components/schemas/PortfolioPosition"
+
+    UserAccountsResponse:
+      type: object
+      required:
+        - trackingId
+        - payload
+        - status
+      properties:
+        trackingId:
+          type: string
+        status:
+          type: string
+          default: Ok
+        payload:
+          $ref: "#/components/schemas/UserAccounts"
+
+    UserAccounts:
+      type: object
+      required:
+        - accounts
+      properties:
+        accounts:
+          type: array
+          items:
+            $ref: "#/components/schemas/UserAccount"
+
+    UserAccount:
+      type: object
+      required:
+        - brokerAccountType
+        - brokerAccountId
+      properties:
+        brokerAccountType:
+          $ref: "#/components/schemas/BrokerAccountType"
+        brokerAccountId:
+          type: string
+
     PortfolioCurrenciesResponse:
       type: object
       required:
@@ -617,6 +783,7 @@ components:
         blocked:
           type: number
           format: double
+
     PortfolioPosition:
       type: object
       required:
@@ -624,6 +791,7 @@ components:
         - balance
         - instrumentType
         - lots
+        - name
       properties:
         figi:
           type: string
@@ -639,15 +807,17 @@ components:
         blocked:
           type: number
           format: double
+        expectedYield:
+          $ref: "#/components/schemas/MoneyAmount"
         lots:
           type: integer
           format: int32
-        expectedYield:
-          $ref: "#/components/schemas/MoneyAmount"
         averagePositionPrice:
           $ref: "#/components/schemas/MoneyAmount"
         averagePositionPriceNoNkd:
           $ref: "#/components/schemas/MoneyAmount"
+        name:
+          type: string
 
     MoneyAmount:
       type: object
@@ -662,19 +832,19 @@ components:
           format: double
 
     OrderbookResponse:
-        type: object
-        required:
-          - trackingId
-          - status
-          - payload
-        properties:
-          trackingId:
-            type: string
-          status:
-            type: string
-            default: Ok
-          payload:
-            $ref: "#/components/schemas/Orderbook"
+      type: object
+      required:
+        - trackingId
+        - status
+        - payload
+      properties:
+        trackingId:
+          type: string
+        status:
+          type: string
+          default: Ok
+        payload:
+          $ref: "#/components/schemas/Orderbook"
 
     Orderbook:
       type: object
@@ -704,6 +874,11 @@ components:
         minPriceIncrement:
           type: number
           format: double
+          description: "Шаг цены"
+        faceValue:
+          type: number
+          format: double
+          description: "Номинал для облигаций"
         lastPrice:
           type: number
           format: double
@@ -713,37 +888,39 @@ components:
         limitUp:
           type: number
           format: double
+          description: "Верхняя граница цены"
         limitDown:
           type: number
           format: double
+          description: "Нижняя граница цены"
 
     OrderResponse:
-        type: object
-        required:
-          - price
-          - quantity
-        properties:
-          price:
-            type: number
-            format: double
-          quantity:
-            type: integer
-            format: int32
+      type: object
+      required:
+        - price
+        - quantity
+      properties:
+        price:
+          type: number
+          format: double
+        quantity:
+          type: integer
+          format: int32
 
     CandlesResponse:
-        type: object
-        required:
-          - trackingId
-          - status
-          - payload
-        properties:
-          trackingId:
-            type: string
-          status:
-            type: string
-            default: Ok
-          payload:
-            $ref: "#/components/schemas/Candles"
+      type: object
+      required:
+        - trackingId
+        - status
+        - payload
+      properties:
+        trackingId:
+          type: string
+        status:
+          type: string
+          default: Ok
+        payload:
+          $ref: "#/components/schemas/Candles"
 
     Candles:
       type: object
@@ -797,34 +974,6 @@ components:
           format: 'date-time'
           description: "ISO8601"
           example: "2019-08-19T18:38:33.131642+03:00"
-
-    CandleResolution:
-      description: |
-        Интервал свечи и допустимый промежуток запроса:
-        - 1min [1 minute, 1 day]
-        - 2min [2 minutes, 1 day]
-        - 3min [3 minutes, 1 day]
-        - 5min [5 minutes, 1 day]
-        - 10min [10 minutes, 1 day]
-        - 15min [15 minutes, 1 day]
-        - 30min [30 minutes, 1 day]
-        - hour [1 hour, 7 days]
-        - day [1 day, 1 year]
-        - week [7 days, 2 years]
-        - month [1 month, 10 years]
-      type: string
-      enum:
-        - 1min
-        - 2min
-        - 3min
-        - 5min
-        - 10min
-        - 15min
-        - 30min
-        - hour
-        - day
-        - week
-        - month
 
     OperationsResponse:
       type: object
@@ -1011,6 +1160,9 @@ components:
           $ref: '#/components/schemas/OrderStatus'
         rejectReason:
           type: string
+        message:
+          description: "Сообщение об ошибке"
+          type: string
         requestedLots:
           type: integer
         executedLots:
@@ -1029,11 +1181,12 @@ components:
       enum:
         - Buy
         - Sell
-        
+
     OperationTypeWithCommission:
       type: string
       enum:
         - Buy
+        - BuyCard
         - Sell
         - BrokerCommission
         - ExchangeCommission
@@ -1062,6 +1215,33 @@ components:
         - Decline
         - Progress
 
+    CandleResolution:
+      description: |
+        Интервал свечи и допустимый промежуток запроса:
+        - 1min [1 minute, 1 day]
+        - 2min [2 minutes, 1 day]
+        - 3min [3 minutes, 1 day]
+        - 5min [5 minutes, 1 day]
+        - 10min [10 minutes, 1 day]
+        - 15min [15 minutes, 1 day]
+        - 30min [30 minutes, 1 day]
+        - hour [1 hour, 7 days]
+        - day [1 day, 1 year]
+        - week [7 days, 2 years]
+        - month [1 month, 10 years]
+      type: string
+      enum:
+        - 1min
+        - 2min
+        - 3min
+        - 5min
+        - 10min
+        - 15min
+        - 30min
+        - hour
+        - day
+        - week
+        - month
 
     OrderStatus:
       description: Статус заявки
@@ -1082,6 +1262,39 @@ components:
       enum:
         - Limit
         - Market
+
+    SandboxRegisterRequest:
+      type: object
+      properties:
+        brokerAccountType:
+          $ref: "#/components/schemas/BrokerAccountType"
+
+    SandboxRegisterResponse:
+      type: object
+      required:
+        - trackingId
+        - payload
+        - status
+      properties:
+        trackingId:
+          type: string
+        status:
+          type: string
+          default: Ok
+        payload:
+          $ref: "#/components/schemas/SandboxAccount"
+
+    SandboxAccount:
+      type: object
+      required:
+        - brokerAccountType
+        - brokerAccountId
+      properties:
+        brokerAccountType:
+          $ref: "#/components/schemas/BrokerAccountType"
+        brokerAccountId:
+          type: string
+
     SandboxSetCurrencyBalanceRequest:
       type: object
       required:
@@ -1093,6 +1306,7 @@ components:
         balance:
           type: number
           format: double
+
     SandboxSetPositionBalanceRequest:
       type: object
       required:
@@ -1104,6 +1318,7 @@ components:
         balance:
           type: number
           format: double
+
     MarketInstrumentListResponse:
       type: object
       required:
@@ -1118,6 +1333,7 @@ components:
           default: Ok
         payload:
           $ref: "#/components/schemas/MarketInstrumentList"
+
     MarketInstrumentList:
       type: object
       required:
@@ -1131,6 +1347,7 @@ components:
           type: array
           items:
             $ref: "#/components/schemas/MarketInstrument"
+
     MarketInstrumentResponse:
       type: object
       required:
@@ -1145,7 +1362,7 @@ components:
           default: Ok
         payload:
           $ref: "#/components/schemas/MarketInstrument"
-          
+
     MarketInstrument:
       type: object
       required:
@@ -1153,6 +1370,7 @@ components:
         - ticker
         - lot
         - name
+        - type
       properties:
         figi:
           type: string
@@ -1163,6 +1381,7 @@ components:
         minPriceIncrement:
           type: number
           format: double
+          description: "Шаг цены"
         lot:
           type: integer
           format: int32
@@ -1170,6 +1389,8 @@ components:
           $ref: '#/components/schemas/Currency'
         name:
           type: string
+        type:
+          $ref: '#/components/schemas/InstrumentType'
 
     SandboxCurrency:
       type: string
@@ -1177,12 +1398,14 @@ components:
         - RUB
         - USD
         - EUR
+
     Currency:
       type: string
       enum:
         - RUB
         - USD
         - EUR
+
     InstrumentType:
       type: string
       enum:
@@ -1190,3 +1413,9 @@ components:
         - Currency
         - Bond
         - Etf
+
+    BrokerAccountType:
+      type: string
+      enum:
+        - Tinkoff
+        - TinkoffIis
