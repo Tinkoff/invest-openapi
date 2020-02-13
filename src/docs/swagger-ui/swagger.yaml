@@ -1506,7 +1506,7 @@ components:
         - ticker
         - lot
         - name
-
+        - type
       properties:
         figi:
           type: string
@@ -1525,7 +1525,9 @@ components:
           $ref: '#/components/schemas/Currency'
         name:
           type: string
-
+        type:
+          $ref: '#/components/schemas/InstrumentType'
+          
     SandboxCurrency:
       type: string
       enum:
