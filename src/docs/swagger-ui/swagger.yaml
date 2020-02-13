@@ -666,7 +666,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/SearchMarketInstrumentResponse"
+                $ref: "#/components/schemas/MarketInstrumentListResponse"
         "500":
           description: Инструмент не найден
           content:
