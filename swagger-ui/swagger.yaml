@@ -666,7 +666,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/SearchMarketInstrumentResponse"
+                $ref: "#/components/schemas/MarketInstrumentListResponse"
         "500":
           description: Инструмент не найден
           content:
@@ -1506,7 +1506,7 @@ components:
         - ticker
         - lot
         - name
-
+        - type
       properties:
         figi:
           type: string
@@ -1525,7 +1525,9 @@ components:
           $ref: '#/components/schemas/Currency'
         name:
           type: string
-
+        type:
+          $ref: '#/components/schemas/InstrumentType'
+          
     SandboxCurrency:
       type: string
       enum:
