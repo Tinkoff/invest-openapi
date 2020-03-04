@@ -26,7 +26,9 @@ Open API — http-интерфейс для взаимодействия с то
 
 # Неофициальные SDK
 
-[python](https://github.com/Awethon/open-api-python-client)
+[python @daxartio](https://github.com/daxartio/tinvest)
+[python @Awethon](https://github.com/Awethon/open-api-python-client)
+[python @Fatal1ty](https://github.com/Fatal1ty/tinkoff-api)
 
 [php](https://github.com/jamesRUS52/tinkoff-invest)
 

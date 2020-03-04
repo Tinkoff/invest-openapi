@@ -20,7 +20,9 @@ openapi_invest@tinkoff.ru
 
 ### Не официальные SDK
 
-[python](https://github.com/Awethon/open-api-python-client)
+[python @daxartio](https://github.com/daxartio/tinvest)
+[python @Awethon](https://github.com/Awethon/open-api-python-client)
+[python @Fatal1ty](https://github.com/Fatal1ty/tinkoff-api)
 
 [php](https://github.com/jamesRUS52/tinkoff-invest)
 
