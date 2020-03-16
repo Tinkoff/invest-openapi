@@ -4,10 +4,6 @@ Open API — http-интерфейс для взаимодействия с то
 
 Open API позволяет вам выставлять лимитные заявки, просматривать информацию по своему портфелю и получать market-data через streaming. 
 
-### Как связаться с нами
-
-openapi_invest@tinkoff.ru 
-
 ### Официальные SDK
 
 [java](https://github.com/TinkoffCreditSystems/invest-openapi-java-sdk)

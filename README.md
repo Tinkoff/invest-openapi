@@ -34,10 +34,6 @@ Open API — http-интерфейс для взаимодействия с то
 
 [php](https://github.com/jamesRUS52/tinkoff-invest)
 
-# Контакты
-
-`openapi_invest@tinkoff.ru`
-
 # Полезные ссылки
 
 [telegram-канал](https://t.me/tinkoffinvestopenapi)
