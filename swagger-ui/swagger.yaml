@@ -1534,6 +1534,12 @@ components:
         - RUB
         - USD
         - EUR
+        - GBP
+        - HKD
+        - CHF
+        - JPY
+        - CNY
+        - TRY
 
     Currency:
       type: string
@@ -1541,6 +1547,12 @@ components:
         - RUB
         - USD
         - EUR
+        - GBP
+        - HKD
+        - CHF
+        - JPY
+        - CNY
+        - TRY
 
     InstrumentType:
       type: string
