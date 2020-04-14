@@ -504,6 +504,12 @@
 <td>Название события</td>
 </tr>
 <tr>
+<td>time</td>
+<td>string</td>
+<td>+</td>
+<td>Время в формате RFC3339Nano</td>
+</tr>
+<tr>
 <td>payload</td>
 <td>object</td>
 <td>+</td>
@@ -562,6 +568,7 @@
 <p>Пример ответа:</p>
 <pre><code>{
     &quot;event&quot;: &quot;candle&quot;,
+    &quot;time&quot;: &quot;2019-08-07T15:35:00.029721253Z&quot;,
     &quot;payload&quot;: {
         &quot;o&quot;: 64.0575,
         &quot;c&quot;: 64.0575,
@@ -613,6 +620,12 @@
 <td>Название события</td>
 </tr>
 <tr>
+<td>time</td>
+<td>string</td>
+<td>+</td>
+<td>Время в формате RFC3339Nano</td>
+</tr>
+<tr>
 <td>payload</td>
 <td>object</td>
 <td>+</td>
@@ -647,6 +660,7 @@
 <p>Пример ответа:</p>
 <pre><code>{
     &quot;event&quot;: &quot;orderbook&quot;,
+    &quot;time&quot;: &quot;2019-08-07T15:35:00.029721253Z&quot;,
     &quot;payload&quot;: {
         &quot;figi&quot;: &quot;BBG0013HGFT4&quot;,
         &quot;depth&quot;: 2,
@@ -697,6 +711,12 @@
 <td>string</td>
 <td>+</td>
 <td>Название события</td>
+</tr>
+<tr>
+<td>time</td>
+<td>string</td>
+<td>+</td>
+<td>Время в формате RFC3339Nano</td>
 </tr>
 <tr>
 <td>payload</td>
@@ -751,6 +771,7 @@
 <p>Пример ответа:</p>
 <pre><code>{
     &quot;event&quot;: &quot;instrument_info&quot;,
+    &quot;time&quot;: &quot;2019-08-07T15:35:00.029721253Z&quot;,
     &quot;payload&quot;: {
         &quot;figi&quot;: &quot;BBG0013HGFT4&quot;,
         &quot;trade_status&quot;: &quot;normal_trading&quot;,
@@ -789,6 +810,12 @@
 <td>Название события</td>
 </tr>
 <tr>
+<td>time</td>
+<td>string</td>
+<td>+</td>
+<td>Время в формате RFC3339Nano</td>
+</tr>
+<tr>
 <td>payload</td>
 <td>object</td>
 <td>+</td>
@@ -819,6 +846,7 @@
 <p>Пример ошибки:</p>
 <pre><code>{
     &quot;event&quot;: &quot;error&quot;,
+    &quot;time&quot;: &quot;2019-08-07T15:35:00.029721253Z&quot;,
     &quot;payload&quot;: {
         &quot;request_id&quot;: &quot;123ASD1123&quot;,
         &quot;error&quot;: &quot;Subscription instrument_info:subscribe. FIGI NOOOOOOO not found&quot;
