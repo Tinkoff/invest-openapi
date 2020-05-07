@@ -24,6 +24,8 @@ Open API позволяет вам выставлять лимитные зая�
 
 [php](https://github.com/jamesRUS52/tinkoff-invest)
 
+[ruby](https://github.com/foxweb/tinkyclient)
+
 ### Полезные ссылки
 
 [telegram-канал](https://t.me/tinkoffinvestopenapi)
