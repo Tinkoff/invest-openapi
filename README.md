@@ -24,8 +24,6 @@ Open API — http-интерфейс для взаимодействия с то
 
 [nodejs](https://github.com/TinkoffCreditSystems/invest-openapi-js-sdk)
 
-[ruby](https://github.com/foxweb/tinkyclient)
-
 # Неофициальные SDK
 
 [python @daxartio](https://github.com/daxartio/tinvest)
@@ -35,6 +33,8 @@ Open API — http-интерфейс для взаимодействия с то
 [python @Fatal1ty](https://github.com/Fatal1ty/tinkoff-api)
 
 [php](https://github.com/jamesRUS52/tinkoff-invest)
+
+[ruby](https://github.com/foxweb/tinkyclient)
 
 # Полезные ссылки
 
