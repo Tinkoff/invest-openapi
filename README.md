@@ -1,41 +1,45 @@
-# Тинькофф Инвестиции OpenApi
+# Тинькофф Инвестиции OpenAPI
 
-Open API — http-интерфейс для взаимодействия с торговой платформой Тинькофф Инвестиции.
+OpenAPI — HTTP-интерфейс для взаимодействия с торговой платформой [Тинькофф Инвестиции](https://www.tinkoff.ru/invest/).
 
-Подробно документацию можно посмотреть на [сайте](https://tinkoffcreditsystems.github.io/invest-openapi/).
+OpenAPI позволяет вам выставлять лимитные заявки, просматривать информацию по своему портфелю и получать market-data через streaming.
+
+[Документация для разработчиков](https://tinkoffcreditsystems.github.io/invest-openapi/)
 
 # Зачем нужен этот репозиторий?
 
-В Issues вы можете задать вопрос или найти ответ, если вопрос уже был задан другими пользователя.
+В Issues вы можете задать вопрос или найти ответ, если вопрос уже был задан другими пользователями.
 
 В Releases мы будем добавлять информацию о релизах.
 
-В директории `src/` хранится документация в формате Markdown, описание rest-протокола можно отредактировать в `src/docs/swagger-ui/swagger.yaml`.
+В директории `src/` хранится документация в формате Markdown. Описание REST-протокола можно отредактировать в `src/docs/swagger-ui/swagger.yaml`.
 
-Если вы встретили неточность или хотели бы что-то дополнить, то мы будем рады принять от вас пулл реквест.
+Если вы встретили неточность или хотели бы что-то дополнить, то мы будем рады принять от вас pull request.
 
 # Официальные SDK
 
-[java](https://github.com/TinkoffCreditSystems/invest-openapi-java-sdk)
+[Java](https://github.com/TinkoffCreditSystems/invest-openapi-java-sdk)
 
-[c#](https://github.com/TinkoffCreditSystems/invest-openapi-csharp-sdk)
+[C#](https://github.com/TinkoffCreditSystems/invest-openapi-csharp-sdk)
 
-[go](https://github.com/TinkoffCreditSystems/invest-openapi-go-sdk)
+[Go](https://github.com/TinkoffCreditSystems/invest-openapi-go-sdk)
 
-[nodejs](https://github.com/TinkoffCreditSystems/invest-openapi-js-sdk)
+[NodeJS](https://github.com/TinkoffCreditSystems/invest-openapi-js-sdk)
 
 # Неофициальные SDK
 
-[python @daxartio](https://github.com/daxartio/tinvest)
+[Python @daxartio](https://github.com/daxartio/tinvest)
 
-[python @Awethon](https://github.com/Awethon/open-api-python-client)
+[Python @Awethon](https://github.com/Awethon/open-api-python-client)
 
-[python @Fatal1ty](https://github.com/Fatal1ty/tinkoff-api)
+[Python @Fatal1ty](https://github.com/Fatal1ty/tinkoff-api)
 
-[php](https://github.com/jamesRUS52/tinkoff-invest)
+[PHP](https://github.com/jamesRUS52/tinkoff-invest)
+
+[Ruby](https://github.com/foxweb/tinkyclient)
 
 [ruby](https://github.com/foxweb/tinkyclient)
 
 # Полезные ссылки
 
-[telegram-канал](https://t.me/tinkoffinvestopenapi)
+[Telegram-канал](https://t.me/tinkoffinvestopenapi)

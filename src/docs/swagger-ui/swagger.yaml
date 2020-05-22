@@ -681,7 +681,7 @@ servers:
     description: "Работа в sandbox"
 
 externalDocs:
-  description: Документация OpenApi
+  description: Документация OpenAPI
   url: https://api-invest.tinkoff.ru/openapi/docs/
 
 components:
