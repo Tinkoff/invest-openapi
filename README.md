@@ -38,8 +38,6 @@ OpenAPI позволяет вам выставлять лимитные заяв
 
 [Ruby](https://github.com/foxweb/tinkyclient)
 
-[ruby](https://github.com/foxweb/tinkyclient)
-
 # Полезные ссылки
 
 [Telegram-канал](https://t.me/tinkoffinvestopenapi)
