@@ -36,7 +36,7 @@
     
     
       
-        <title>Окружения - Тинькофф Инвестиции OpenApi</title>
+        <title>Окружения - Тинькофф Инвестиции OpenAPI</title>
       
     
     
@@ -94,7 +94,7 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href=".." title="Тинькофф Инвестиции OpenApi" class="md-header-nav__button md-logo">
+        <a href=".." title="Тинькофф Инвестиции OpenAPI" class="md-header-nav__button md-logo">
           
             <i class="md-icon"></i>
           
@@ -107,7 +107,7 @@
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
           
             <span class="md-header-nav__topic">
-              Тинькофф Инвестиции OpenApi
+              Тинькофф Инвестиции OpenAPI
             </span>
             <span class="md-header-nav__topic">
               
@@ -186,12 +186,12 @@
                   <div class="md-sidebar__inner">
                     <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href=".." title="Тинькофф Инвестиции OpenApi" class="md-nav__button md-logo">
+    <a href=".." title="Тинькофф Инвестиции OpenAPI" class="md-nav__button md-logo">
       
         <i class="md-icon"></i>
       
     </a>
-    Тинькофф Инвестиции OpenApi
+    Тинькофф Инвестиции OpenAPI
   </label>
   
     <div class="md-nav__source">
@@ -413,7 +413,7 @@
                 
                 
                 <h1 id="_1">Окружения</h1>
-<p>Каждое из окружений использует свой вид токена авторизации, получив токен для Sandbox, вы не сможете использовать его для работы с REST-биржи. </p>
+<p>Каждое из окружений использует свой вид токена авторизации. Получив токен для Sandbox, вы не сможете использовать его для работы с REST API биржи.</p>
 <p>Это сделано для того, чтобы обезопасить процесс тестирования и случайно не начать торговать на бирже.</p>
 <p>При этом streaming market-data может работать с любыми видами токенов.</p>
 <h2 id="production">Production</h2>
@@ -430,12 +430,14 @@
 <li>Комиссии при покупке/продаже не учитываются</li>
 <li>Доходность всегда считается нулевой</li>
 </ul>
-<p>Для того чтобы начать использовать Sandbox, необходимо вызвать <a href="https://api-invest.tinkoff.ru/openapi/docs/swagger-ui/index.html#/sandbox/post_sandbox_register">метод регистрации</a></p>
+<p>Для того чтобы начать использовать Sandbox, необходимо вызвать <a href="https://tinkoffcreditsystems.github.io/invest-openapi/swagger-ui/#/sandbox/post_sandbox_register">метод регистрации</a></p>
 <h3 id="sandbox_1">Управление Sandbox</h3>
-<p><code>sandbox/register</code> - регистрация в sandbox, создание валютных позиций</p>
-<p><code>sandbox/currencies/balance</code> - выставление баланса по валютным позициям</p>
-<p><code>sandbox/positions/balance</code> - выставление баланса по не-валютным позициям</p>
-<p><code>sandbox/clean</code> - очистка позиций </p>
+<ul>
+<li><code>sandbox/register</code> — регистрация в sandbox, создание валютных позиций</li>
+<li><code>sandbox/currencies/balance</code> — выставление баланса по валютным позициям</li>
+<li><code>sandbox/positions/balance</code> — выставление баланса по не-валютным позициям</li>
+<li><code>sandbox/clean</code> — очистка позиций</li>
+</ul>
                 
                   
                 
