@@ -1093,6 +1093,11 @@ components:
         quantity:
           type: integer
           format: int32
+          description: "Число инструментов в выставленной заявке"
+        quantityExecuted:
+          type: integer
+          format: int32
+          description: "Число инструментов, исполненных в заявке"
         figi:
           type: string
         instrumentType:
@@ -1521,6 +1526,10 @@ components:
         lot:
           type: integer
           format: int32
+        minQuantity:
+          type: integer
+          format: int32
+          description: "Минимальное число инструментов для покупки должно быть не меньше, чем размер лота х количество лотов"  
         currency:
           $ref: '#/components/schemas/Currency'
         name:
