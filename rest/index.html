@@ -261,6 +261,19 @@
     Ограничение количества запросов
   </a>
   
+    <nav class="md-nav" aria-label="Ограничение количества запросов">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#moex" class="md-nav__link">
+    Ограничение количества запросов от Московской Биржи (MOEX)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -331,6 +344,19 @@
     Ограничение количества запросов
   </a>
   
+    <nav class="md-nav" aria-label="Ограничение количества запросов">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#moex" class="md-nav__link">
+    Ограничение количества запросов от Московской Биржи (MOEX)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -400,6 +426,12 @@
 </tbody>
 </table>
 <p>При превышении лимита запросов возвращается ошибка <code>429 Error: Too Many Requests</code></p>
+<h3 id="moex">Ограничение количества запросов от Московской Биржи (MOEX)</h3>
+<ul>
+<li>Среднее допустимое количество действий в секунду 150 запросов в течение 5 минут</li>
+<li>Среднее допустимое количество сообщений об ошибке в секунду 10 в течение 5 минут</li>
+</ul>
+<p>Под запросами в биржу подразумевается выставление и отмена заявок</p>
 <h2 id="_2">Генерация</h2>
 <p>REST API использует OpenAPI 3.0.0, для генерации клиентов необходимо использовать новую версию <a href="https://github.com/swagger-api/swagger-codegen/tree/3.0.0">swagger-gen</a>.</p>
 <p><code>swagger.yaml</code> доступен по адресу <code>https://tinkoffcreditsystems.github.io/invest-openapi/swagger-ui/swagger.yaml</code>.</p>
