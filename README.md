@@ -38,6 +38,10 @@ OpenAPI позволяет вам выставлять лимитные заяв
 
 [Ruby](https://github.com/foxweb/tinkyclient)
 
+# Утилиты
+
+[Streaming Data Saver](https://github.com/a0s/tinkoff-invest-dumper) (Go)
+
 # Полезные ссылки
 
 [Telegram-канал](https://t.me/tinkoffinvestopenapi)
