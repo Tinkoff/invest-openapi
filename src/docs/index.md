@@ -12,6 +12,9 @@ OpenAPI позволяет вам выставлять лимитные заяв
 * TRUB
 * TUSD
 * TEUR
+* TECH
+* TMOS
+* TGLD
 
 ## Официальные SDK
 
