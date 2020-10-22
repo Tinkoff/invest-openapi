@@ -16,6 +16,18 @@ OpenAPI позволяет вам выставлять лимитные заяв
 
 Если вы встретили неточность или хотели бы что-то дополнить, то мы будем рады принять от вас pull request.
 
+# Мы собираем команду для реализации OpenApi V2
+
+* Руководитель команды
+* Системный аналитик
+* Golang разработчики
+* Fullstack QA
+* Команда сопровождения и поддержки клиентов
+
+Контакты: n.v.melnikov@tinkoff.ru
+
+А так же у нас открыты вакансии не только в команду OpenApi https://www.tinkoff.ru/career/vacancies/invest/
+
 # Официальные SDK
 
 [Java](https://github.com/TinkoffCreditSystems/invest-openapi-java-sdk)
