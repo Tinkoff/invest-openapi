@@ -10,9 +10,9 @@
 | /portfolio  | 120                 | 1 минута             |
 | /market     | 120                 | 1 минута             |
 | /orders     | 100                 | 1 минута             |
-| /orders/limit-order     | 10                 | 1 минута             |
-| /orders/market-order     | 10                 | 1 минута             |
-| /orders/cancel     | 10                 | 1 минута             |
+| /orders/limit-order     | 50                 | 1 минута             |
+| /orders/market-order     | 50                 | 1 минута             |
+| /orders/cancel     | 50                 | 1 минута             |
 | /operations | 120                 | 1 минута             |
 
 
