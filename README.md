@@ -58,4 +58,4 @@ OpenAPI позволяет вам выставлять лимитные заяв
 
 [Telegram-канал](https://t.me/tinkoffinvestopenapi)
 
-[Неофициальный чат для пользователей](t.me/tba_chat)
+[Неофициальный чат для пользователей](https://t.me/tba_chat)
