@@ -15,6 +15,9 @@ OpenAPI позволяет вам выставлять лимитные заяв
 * TECH
 * TMOS
 * TGLD
+* TSPX 
+* TIPO
+* TBIO
 
 ## Официальные SDK
 
