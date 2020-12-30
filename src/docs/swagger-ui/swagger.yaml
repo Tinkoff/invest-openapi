@@ -3,7 +3,7 @@ info:
   description: tinkoff.ru/invest OpenAPI.
   version: 1.0.0
   title: OpenAPI
-  termsOfService: "#"
+  termsOfService: https://www.tinkoff.ru/invest/disclaimers/basic-information/
   contact:
     email: n.v.melnikov@tinkoff.ru
 tags:
