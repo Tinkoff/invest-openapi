@@ -5,7 +5,7 @@ info:
   title: OpenAPI
   termsOfService: https://www.tinkoff.ru/invest/disclaimers/basic-information/
   contact:
-    email: n.v.melnikov@tinkoff.ru
+    email: al.a.volkov@tinkoff.ru
 tags:
   - name: sandbox
     description: Операция в sandbox
