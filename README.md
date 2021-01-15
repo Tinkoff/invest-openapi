@@ -24,7 +24,7 @@ OpenAPI позволяет вам выставлять лимитные заяв
 * Fullstack QA
 * Команда сопровождения и поддержки клиентов
 
-Контакты: n.v.melnikov@tinkoff.ru
+Контакты: al.a.volkov@tinkoff.ru
 
 А так же у нас открыты вакансии не только в команду OpenApi https://www.tinkoff.ru/career/vacancies/invest/
 
