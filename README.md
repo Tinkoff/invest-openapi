@@ -18,6 +18,7 @@ OpenAPI позволяет вам выставлять лимитные заяв
 
 # Мы собираем команду для реализации OpenApi V2
 
+* Java разработчики
 * Golang разработчики
 * Fullstack QA
 * Команда сопровождения и поддержки клиентов
@@ -45,6 +46,8 @@ OpenAPI позволяет вам выставлять лимитные заяв
 [Python @Fatal1ty](https://github.com/Fatal1ty/tinkoff-api)
 
 [PHP](https://github.com/jamesRUS52/tinkoff-invest)
+
+[PHP](https://github.com/dzhdmitry/tinkoff-invest-api)
 
 # Неофициальные утилиты
 
