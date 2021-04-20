@@ -45,9 +45,9 @@ OpenAPI позволяет вам выставлять лимитные заяв
 
 [Python @Fatal1ty](https://github.com/Fatal1ty/tinkoff-api)
 
-[PHP](https://github.com/jamesRUS52/tinkoff-invest)
+[PHP @jamesRUS52](https://github.com/jamesRUS52/tinkoff-invest)
 
-[PHP](https://github.com/dzhdmitry/tinkoff-invest-api)
+[PHP @dzhdmitry](https://github.com/dzhdmitry/tinkoff-invest-api)
 
 # Неофициальные утилиты
 
