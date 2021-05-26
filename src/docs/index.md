@@ -42,6 +42,8 @@ OpenAPI позволяет вам выставлять лимитные заяв
 
 [Ruby](https://github.com/foxweb/tinkyclient)
 
+[Dart](https://github.com/greymag/tinkoff-invest-openapi-dart-sdk)
+
 ## Полезные ссылки
 
 [Telegram-канал](https://t.me/tinkoffinvestopenapi)

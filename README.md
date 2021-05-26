@@ -49,6 +49,8 @@ OpenAPI позволяет вам выставлять лимитные заяв
 
 [PHP @dzhdmitry](https://github.com/dzhdmitry/tinkoff-invest-api)
 
+[Dart @greymag](https://github.com/greymag/tinkoff-invest-openapi-dart-sdk)
+
 # Неофициальные утилиты
 
 [Tiny client for Tinkoff OpenAPI](https://github.com/foxweb/tinkyclient) (Ruby)
