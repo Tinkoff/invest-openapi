@@ -31,6 +31,4 @@ isValidPrice(10.16, 0.1) // false
 В данный момент для операций в OpenAPI доступны только валюты USD и EUR
 
 ##Торговля бумагами Тинькофф через OpenAPI
-Из-за огромного количества скальперских сделок мы закрыли торговлю Т-бумагами в OpenAPI:
-
-TCSG, TRUR, TUSD, TEUR, TECH, TMOS, TGLD, TSPX, TIPO, TBIO
+Из-за огромного количества скальперских сделок мы закрыли торговлю Т-бумагами в OpenAPI. Список бумаг смотрите [здесь](https://tinkoffcreditsystems.github.io/invest-openapi/)

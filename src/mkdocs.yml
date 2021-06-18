@@ -15,7 +15,11 @@ nav:
 - Окружения: env.md
 - "Протокол: rest": rest.md
 - "Протокол: streaming": marketdata.md
-- "Работа с торговыми поручениями": orders.md
+- HOW-TO:
+  - "Работа с торговыми поручениями": orders.md
+  - "Инструменты и котировки": faq_marketdata.md
 - FAQ:
-  - FAQ: faq.md
-  - "Вопросы по биржевой информации": faq_marketdata.md
+  - "Условия использования": faq_rules.md
+  - Ошибки: faq_errors.md
+  - Песочница: faq_sandbox.md
+  - Мультисчета: faq_multiaccounts.md
