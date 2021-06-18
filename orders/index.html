@@ -14,7 +14,7 @@
     
     
       
-        <title>FAQ - Тинькофф Инвестиции OpenAPI</title>
+        <title>Orders - Тинькофф Инвестиции OpenAPI</title>
       
     
     
@@ -94,7 +94,7 @@
         <div class="md-header-nav__topic">
           <span class="md-ellipsis">
             
-              FAQ
+              Orders
             
           </span>
         </div>
@@ -262,97 +262,11 @@
       
 
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-      
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        FAQ
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-    
-    <a href="./" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../faq/" class="md-nav__link">
       FAQ
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary" aria-label="Содержание">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Содержание
-    </label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    Что такое шаг цены?
-  </a>
-  
-    <nav class="md-nav" aria-label="Что такое шаг цены?">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    Пример
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#openapi" class="md-nav__link">
-    Можно ли работать через OpenAPI с внебиржевыми инструментами?
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#openapi_1" class="md-nav__link">
-    Можно ли работать через OpenAPI с фьючерсами?
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#500" class="md-nav__link">
-    Ошибки с кодом 500 при запросе списка операций
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#usd-eur" class="md-nav__link">
-    Можно ли получить валюты кроме USD и EUR?
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#openapi_2" class="md-nav__link">
-    Можно ли торговать в OpenAPI бумагами Тинькофф без комиссий
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-    
   </li>
 
     
@@ -382,15 +296,22 @@
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
-    Что такое шаг цены?
+    Выставление торговых поручений
   </a>
   
-    <nav class="md-nav" aria-label="Что такое шаг цены?">
+    <nav class="md-nav" aria-label="Выставление торговых поручений">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
-    Пример
+    Лимитное торговое поручение
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    Рыночное торговое поручение
   </a>
   
 </li>
@@ -401,36 +322,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#openapi" class="md-nav__link">
-    Можно ли работать через OpenAPI с внебиржевыми инструментами?
+  <a href="#_5" class="md-nav__link">
+    Отмена торговых поручений
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#openapi_1" class="md-nav__link">
-    Можно ли работать через OpenAPI с фьючерсами?
+  <a href="#-" class="md-nav__link">
+    Стоп-заявки
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#500" class="md-nav__link">
-    Ошибки с кодом 500 при запросе списка операций
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#usd-eur" class="md-nav__link">
-    Можно ли получить валюты кроме USD и EUR?
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#openapi_2" class="md-nav__link">
-    Можно ли торговать в OpenAPI бумагами Тинькофф без комиссий
+  <a href="#-_1" class="md-nav__link">
+    Особенности исполнения заявок на Санкт-Петербургской бирже
   </a>
   
 </li>
@@ -447,40 +354,47 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/TinkoffCreditSystems/invest-openapi/edit/master/docs/faq.md" title="Редактировать страницу" class="md-content__button md-icon">
+                  <a href="https://github.com/TinkoffCreditSystems/invest-openapi/edit/master/docs/orders.md" title="Редактировать страницу" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
-                <h1 id="_1">Часто задаваемые вопросы</h1>
-<h2 id="_2">Что такое шаг цены?</h2>
-<p>Шаг цены — это минимальное изменение цены определенного инструмента.</p>
-<h3 id="_3">Пример</h3>
-<p>Шаг цены для инструмента = <code>0.1</code>, а последняя цена = <code>10.5</code> - это означает, что заявка может быть выставлена по одной из следующих цен:</p>
-<ul>
-<li>10.4</li>
-<li>10.5</li>
-<li>10.6</li>
-</ul>
-<p>Цена <code>10.55</code> будет некорректной и заявка не будет выставлена.</p>
-<pre><code class="language-scala">def isValidPrice(price: BigDecimal, increment: BigDecimal): Boolean = {
-    price % increment == 0
-}
-
-isValidPrice(10.1, 0.1) // true
-isValidPrice(10.16, 0.1) // false
-</code></pre>
-<h2 id="openapi">Можно ли работать через OpenAPI с внебиржевыми инструментами?</h2>
-<p>Нет, в данный момент OpenAPI предполагает работу только с биржевыми инструментами.</p>
-<h2 id="openapi_1">Можно ли работать через OpenAPI с фьючерсами?</h2>
-<p>В данный момент такая функциональность не предоставляется.</p>
-<h2 id="500">Ошибки с кодом 500 при запросе списка операций</h2>
-<p>Такое может возникать при запросе большого количества операций. При возникновении проблемы рекомендуется уменьшить запрашиваемый интервал операций.</p>
-<h2 id="usd-eur">Можно ли получить валюты кроме USD и EUR?</h2>
-<p>Пока работа с другими валютными парами через OpenAPI недоступна.</p>
-<h2 id="openapi_2">Можно ли торговать в OpenAPI бумагами Тинькофф без комиссий</h2>
-<p>Нет, именно из-за огромного количества скальперских сделок мы закрыли торговлю Т-бумагами в OpenAPI:</p>
-<p>TCSG, TRUR, TUSD, TEUR, TECH, TMOS, TGLD, TSPX, TIPO, TBIO</p>
+                <h1 id="_1">Алгоритм и особенности исполнения торговых поручений</h1>
+<h2 id="_2">Выставление торговых поручений</h2>
+<h3 id="_3">Лимитное торговое поручение</h3>
+<p>Чтобы не тратить время на постоянное отслеживание котировок на бирже, вы можете выставить так называемую лимитную заявку — это указание брокеру, какую бумагу или валюту, сколько лотов и по какой цене вы хотите купить или продать.</p>
+<p>Биржа ограничивает цену, которую можно указать в лимитной заявке, крайними предложениями в биржевом стакане (параметры limitUp и limitDown).</p>
+<p><strong>Обратите внимание, что в некоторых случаях может возникнуть ситуация, когда limitDown &gt; limitUp. Это нормально, т.к. limitUp ограничивает на покупку, а limitDown - на продажу, потому ситуация limitDown &gt; limitUp не является аномальной.</strong></p>
+<p>Выставить лимитное торговое поручение (заявку) можно при помощи метода OpenAPI <a href="https://tinkoffcreditsystems.github.io/invest-openapi/swagger-ui/#/orders/post_orders_limit_order">Создание лимитной заявки</a></p>
+<h3 id="_4">Рыночное торговое поручение</h3>
+<p>Это заявка на покупку или продажу активов по той цене, что есть на бирже в данный момент. У нее есть важная 
+особенность.
+При исполнении рыночной заявки может оказаться, что в данный момент на бирже по текущей цене 
+торгуется меньше лотов, чем вы указали, при этом другие лоты есть, но их цена отличается в негативную для 
+вас сторону.
+В этом случае брокер купит имеющееся количество лотов по текущей цене, а оставшуюся часть заявки будет 
+покупать по следующей по списку цене. Если на бирже низкая ликвидность — например, торги рано утром или до 
+открытия американской биржи, — то оставшаяся часть заявки может быть исполнена по невыгодной для вас цене. 
+Проверить текущую ликвидность можно в 
+<a href="https://tinkoffcreditsystems.github.io/invest-openapi/swagger-ui/#/market/get_market_orderbook">биржевом стакане.</a></p>
+<p>Выставить рыночное торговое поручение (заявку) можно при помощи метода OpenAPI <a href="https://tinkoffcreditsystems.github.io/invest-openapi/swagger-ui/#/orders/post_orders_market_order">Создание рыночной заявки</a></p>
+<h2 id="_5">Отмена торговых поручений</h2>
+<p>В процессе торговли может возникнуть необходимость отменить невыполненную или частично выполненную заявку. Для этого используется метод OpenAPI <a href="https://tinkoffcreditsystems.github.io/invest-openapi/swagger-ui/#/orders/post_orders_cancel">Отмена заявки</a></p>
+<h2 id="-">Стоп-заявки</h2>
+<p>В данный момент OpenAPI <strong>не поддерживает</strong> работу со стоп-заявками (take-profit, stop-loss и т.п.)</p>
+<h2 id="-_1">Особенности исполнения заявок на Санкт-Петербургской бирже</h2>
+<p>Все операции с иностранными ценными бумагами в <a href="https://www.tinkoff.ru/invest/">Тинькофф Инвестиции</a> производятся на Санкт-Петербургской бирже, которая имеет ряд особенностей исполнения заявок.</p>
+<p>У данной биржи есть два пула ликвидности — США и собственный. Пул США подключается в 14:30 Мск по летнему 
+американскому времени. Ранее выставленные ордера остаются на СПБ. В момент выставления торгового поручения 
+механизм <a href="https://nprts.ru/ru/projects/bestexecution/">best execution</a> проверяет, в каком пуле лучше условия 
+и выставляет заявку туда. После выставления заявка уже не переносится между пулами, поэтому может быть ситуация, 
+что пул, в котором выставлена заявка не достиг лимитной цены, а в другом пуле нужная цена достигалась. </p>
+<p>Вся же биржевая информация (свечи, стаканы) транслируются агрегируя информация со всех пулов ликвидности.</p>
+<p>Исходя из этого может случиться ситуация, когда выставленное торговое поручение не исполняется, 
+хотя имеются подходящие в стакане цены/предложения. В данных ситуация команда OpenAPI рекомендует перевыставлять 
+(отменить и выставить заново) заявки, чтобы механизм выбора пула ликвидности разместил заявку в более подходящем пуле.</p>
+<p>Неисполненные заявки могут сниматься в разное время по описанным выше причинам. Время жизни заявки в каждом пуле ликвидности
+соответствует <a href="https://spbexchange.ru/ru/stocks/inostrannye/raspisanie/">времени работы</a> соответствующей сессии пула.</p>
                 
               
               
@@ -495,27 +409,6 @@ isValidPrice(10.16, 0.1) // false
       
         
 <footer class="md-footer">
-  
-    <div class="md-footer-nav">
-      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
-        
-          <a href="../marketdata/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
-            <div class="md-footer-nav__button md-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-            </div>
-            <div class="md-footer-nav__title">
-              <div class="md-ellipsis">
-                <span class="md-footer-nav__direction">
-                  Назад
-                </span>
-                Протокол: streaming
-              </div>
-            </div>
-          </a>
-        
-        
-      </nav>
-    </div>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
