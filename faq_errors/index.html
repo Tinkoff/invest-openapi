@@ -14,7 +14,7 @@
     
     
       
-        <title>FAQ - Тинькофф Инвестиции OpenAPI</title>
+        <title>Ошибки - Тинькофф Инвестиции OpenAPI</title>
       
     
     
@@ -94,7 +94,7 @@
         <div class="md-header-nav__topic">
           <span class="md-ellipsis">
             
-              FAQ
+              Ошибки
             
           </span>
         </div>
@@ -263,10 +263,52 @@
 
 
 
+  
+  <li class="md-nav__item md-nav__item--nested">
+    
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6" >
+    
+    <label class="md-nav__link" for="nav-6">
+      HOW-TO
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="HOW-TO" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        <span class="md-nav__icon md-icon"></span>
+        HOW-TO
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+
   <li class="md-nav__item">
     <a href="../orders/" class="md-nav__link">
       Работа с торговыми поручениями
     </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../faq_marketdata/" class="md-nav__link">
+      Инструменты и котировки
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
   </li>
 
     
@@ -301,6 +343,19 @@
           
 
 
+
+  <li class="md-nav__item">
+    <a href="../faq_rules/" class="md-nav__link">
+      Условия использования
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
   
 
 
@@ -310,12 +365,12 @@
     
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
-        FAQ
+        Ошибки
         <span class="md-nav__icon md-icon"></span>
       </label>
     
     <a href="./" class="md-nav__link md-nav__link--active">
-      FAQ
+      Ошибки
     </a>
     
       
@@ -336,6 +391,20 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    Ошибки при большом количестве запросов
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#websocket" class="md-nav__link">
+    Разрыв соединения по WebSocket
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -350,8 +419,21 @@
 
 
   <li class="md-nav__item">
-    <a href="../faq_marketdata/" class="md-nav__link">
-      Вопросы по биржевой информации
+    <a href="../faq_sandbox/" class="md-nav__link">
+      Песочница
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../faq_multiaccounts/" class="md-nav__link">
+      Мультисчета
     </a>
   </li>
 
@@ -390,6 +472,20 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    Ошибки при большом количестве запросов
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#websocket" class="md-nav__link">
+    Разрыв соединения по WebSocket
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -402,16 +498,20 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/TinkoffCreditSystems/invest-openapi/edit/master/docs/faq.md" title="Редактировать страницу" class="md-content__button md-icon">
+                  <a href="https://github.com/TinkoffCreditSystems/invest-openapi/edit/master/docs/faq_errors.md" title="Редактировать страницу" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
-                  <h1>FAQ</h1>
+                  <h1>Ошибки</h1>
                 
                 <h2 id="_1">Ошибки при запросе списка операций</h2>
 <p>Ошибки (с кодом 500) могут возникать при запросе большого количества операций. 
 При возникновении проблемы рекомендуется уменьшить запрашиваемый интервал операций.</p>
+<h2 id="_2">Ошибки при большом количестве запросов</h2>
+<p>Если с одного IP адреса приходит очень много запросов (от 500 в минуту и выше), то появляется вероятность временной блокировки IP адреса. Рекомендуем ограничивать робота интенсивность робота при получении HTTP ошибок 421 (Too Many Connections).</p>
+<h2 id="websocket">Разрыв соединения по WebSocket</h2>
+<p>В случае, если подписок на инструменты очень много, то сервер может не успевать передавать новые данные и в этом случае разрывает соединение. Рекомендует подписываться на 30 бумаг. Помимо этого, разрывы могут быть вследствие нестабильности сетевого соединения.</p>
                 
               
               
@@ -430,7 +530,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="../orders/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../faq_rules/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
@@ -439,19 +539,19 @@
                 <span class="md-footer-nav__direction">
                   Назад
                 </span>
-                Работа с торговыми поручениями
+                Условия использования
               </div>
             </div>
           </a>
         
         
-          <a href="../faq_marketdata/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../faq_sandbox/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-footer-nav__title">
               <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Вперед
                 </span>
-                Вопросы по биржевой информации
+                Песочница
               </div>
             </div>
             <div class="md-footer-nav__button md-icon">
