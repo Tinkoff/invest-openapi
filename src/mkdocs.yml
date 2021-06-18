@@ -15,4 +15,7 @@ nav:
 - Окружения: env.md
 - "Протокол: rest": rest.md
 - "Протокол: streaming": marketdata.md
-- FAQ: faq.md
+- "Работа с торговыми поручениями": orders.md
+- FAQ:
+  - FAQ: faq.md
+  - "Вопросы по биржевой информации": faq_marketdata.md
