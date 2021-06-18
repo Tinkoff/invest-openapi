@@ -243,6 +243,13 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#openapi" class="md-nav__link">
+    Токен для работы с OpenAPI
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     Получение токена
   </a>
@@ -354,6 +361,13 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#openapi" class="md-nav__link">
+    Токен для работы с OpenAPI
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     Получение токена
   </a>
@@ -399,6 +413,11 @@
                 
                 
                 <h1 id="_1">Авторизация</h1>
+<h2 id="openapi">Токен для работы с OpenAPI</h2>
+<p>Токен – это специальный набор символов, представляющий собой зашифрованную информацию о владельце и прочей необходимой для авторизации в OpenAPI информации.</p>
+<p>Существует два вида токенов:
+* Токен для работы с песочницей
+* Токен для полнофункциональной работы с <a href="https://www.tinkoff.ru/invest/">Тинькофф Инвестиции</a></p>
 <h2 id="_2">Получение токена</h2>
 <ol>
 <li>Зайдите в свой аккаунт на https://tinkoff.ru/</li>
@@ -420,6 +439,7 @@
 <p>Срок жизни токена составляет три месяца с даты последнего использования.</p>
 <h2 id="_4">Отзыв токена</h2>
 <p>Отозвать токен OpenAPI можно на странице <a href="https://id.tinkoff.ru/account">https://id.tinkoff.ru/account</a></p>
+<p>Обратите внимание, что после отзыва токена REST-методы OpenAPI могут оставаться доступны в течение 10 минут, а stream-соединения останутся активны до разрыва.</p>
 <h2 id="_5">Выполнение запросов</h2>
 <p>Чтобы выполнить запрос в OpenAPI вам необходимо передавать токен при каждом вызове в HTTP-заголовке, либо в заголовке запроса подключения в случае streaming-протокола.</p>
 <pre><code>Authorization: Bearer {TOKEN}
