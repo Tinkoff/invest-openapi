@@ -19,6 +19,7 @@ nav:
   - "Работа с торговыми поручениями": orders.md
   - "Инструменты и котировки": faq_marketdata.md
 - FAQ:
+  - Глоссарий: glossary.md
   - "Условия использования": faq_rules.md
   - Ошибки: faq_errors.md
   - Песочница: faq_sandbox.md
