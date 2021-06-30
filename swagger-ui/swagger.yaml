@@ -335,7 +335,7 @@ paths:
             type: string
             format: 'date-time'
             description: "ISO8601"
-            example: "2019-08-19T18:38:33.131642+03:00"
+            example: "2019-08-19T18:38:33+03:00"
         - name: to
           in: query
           required: true
@@ -344,7 +344,7 @@ paths:
             type: string
             format: 'date-time'
             description: "ISO8601"
-            example: "2019-08-19T18:38:33.131642+03:00"
+            example: "2019-08-19T18:38:33+03:00"
         - name: figi
           in: query
           required: false
@@ -588,7 +588,7 @@ paths:
             type: string
             format: 'date-time'
             description: "ISO8601"
-            example: "2019-08-19T18:38:33.131642+03:00"
+            example: "2019-08-19T18:38:33+03:00"
         - name: to
           in: query
           required: true
@@ -597,7 +597,7 @@ paths:
             type: string
             format: 'date-time'
             description: "ISO8601"
-            example: "2019-08-19T18:38:33.131642+03:00"
+            example: "2019-08-19T18:38:33+03:00"
         - name: interval
           in: query
           required: true
@@ -1013,7 +1013,7 @@ components:
           type: string
           format: 'date-time'
           description: "ISO8601"
-          example: "2019-08-19T18:38:33.131642+03:00"
+          example: "2019-08-19T18:38:33+03:00"
 
     OperationsResponse:
       type: object
@@ -1054,7 +1054,7 @@ components:
           type: string
           format: 'date-time'
           description: "ISO8601"
-          example: "2019-08-19T18:38:33.131642+03:00"
+          example: "2019-08-19T18:38:33+03:00"
         price:
           type: number
           format: double
@@ -1108,7 +1108,7 @@ components:
           type: string
           format: 'date-time'
           description: "ISO8601"
-          example: "2019-08-19T18:38:33.131642+03:00"
+          example: "2019-08-19T18:38:33+03:00"
         operationType:
           $ref: "#/components/schemas/OperationTypeWithCommission"
 
