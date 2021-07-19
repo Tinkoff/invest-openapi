@@ -21,6 +21,7 @@ nav:
 - FAQ:
   - Глоссарий: glossary.md
   - "Условия использования": faq_rules.md
+  - "Торговые площадки и режимы торгов": markets.md
   - Ошибки: faq_errors.md
   - Песочница: faq_sandbox.md
   - Мультисчета: faq_multiaccounts.md
