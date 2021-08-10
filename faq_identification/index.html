@@ -14,7 +14,7 @@
     
     
       
-        <title>Мультисчета - Тинькофф Инвестиции OpenAPI</title>
+        <title>Идентификация торговых инструментов - Тинькофф Инвестиции OpenAPI</title>
       
     
     
@@ -94,7 +94,7 @@
         <div class="md-header-nav__topic">
           <span class="md-ellipsis">
             
-              Мультисчета
+              Идентификация торговых инструментов
             
           </span>
         </div>
@@ -369,11 +369,20 @@
           
 
 
+  
 
-  <li class="md-nav__item">
-    <a href="../faq_identification/" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+    <a href="./" class="md-nav__link md-nav__link--active">
       Идентификация торговых инструментов
     </a>
+    
   </li>
 
         
@@ -421,59 +430,11 @@
           
 
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        Мультисчета
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-    
-    <a href="./" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../faq_multiaccounts/" class="md-nav__link">
       Мультисчета
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary" aria-label="Содержание">
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Содержание
-    </label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    Как открыть дополнительные брокерские счета?
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    Какая логика работы с мультисчетами?
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#openapi" class="md-nav__link">
-    Поддерживаются ли сейчас мультисчета в openAPI?
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-    
   </li>
 
         
@@ -497,35 +458,8 @@
 <nav class="md-nav md-nav--secondary" aria-label="Содержание">
   
   
+    
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Содержание
-    </label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    Как открыть дополнительные брокерские счета?
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    Какая логика работы с мультисчетами?
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#openapi" class="md-nav__link">
-    Поддерживаются ли сейчас мультисчета в openAPI?
-  </a>
-  
-</li>
-      
-    </ul>
   
 </nav>
                   </div>
@@ -537,19 +471,19 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/TinkoffCreditSystems/invest-openapi/edit/master/docs/faq_multiaccounts.md" title="Редактировать страницу" class="md-content__button md-icon">
+                  <a href="https://github.com/TinkoffCreditSystems/invest-openapi/edit/master/docs/faq_identification.md" title="Редактировать страницу" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
-                  <h1>Мультисчета</h1>
-                
-                <h2 id="_1">Как открыть дополнительные брокерские счета?</h2>
-<p>Открыть счета можно через мобильное приложение</p>
-<h2 id="_2">Какая логика работы с мультисчетами?</h2>
-<p>Каждый новый счет полностью изолирован от остальных - портфолио, операции, лимиты, гарантийные обеспечения, уровни достаточности средств учитываются по каждому счету отдельно. Поэтому может быть ситуация, при которой на одном счете средств хватает с избытком, а на другом при нехватке средств и активной маржинальной торговле может наступить маржин колл. </p>
-<h2 id="openapi">Поддерживаются ли сейчас мультисчета в openAPI?</h2>
-<p>Поддержка мультисчетов в openAPI в процессе разработки. Работаем над этим.</p>
+                <h1 id="_1">Идентификация торговых инструментов</h1>
+<p>Для точного определения различных торговых инструментов используются различные идентификаторы: </p>
+<ol>
+<li><strong>Isin</strong>(<em>англ.:</em> International Security Identification Number) — международный идентификационный номер ценной бумаги, состоит из 12 символов цифр и латинских букв, которые начинаются, как правило, с 2-буквенного кода страны эмитента ценной бумаги.</li>
+<li><strong>Ticker</strong> — краткое (1-5 букв) наименование ценной бумаге <em>на конкретной бирже</em>. Без указания биржи и режима торгов, по сути, является бессмысленным набором букв. Для этого на российских биржах MOEX и SBPExchange используется специальный признак "Режим торгов", который соответствует техническому термину "classCode".</li>
+<li><strong>FIGI</strong>(<em>англ.:</em> Financial Instrument Global Identifier) — глобальный идентификатор финансового инструмента. Представляет собой 12-символьный код из латинских букв и цифр, определяется как идентификатор ценной бумаги на торговой площадке (бирже), которая является некоторым <em>"источником цен"</em>.</br>
+<strong>Основным идентификаторов торгового инструмента при работе с OpenAPI является </strong>FIGI<strong>.</strong></li>
+</ol>
                 
               
               
@@ -568,7 +502,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="../faq_sandbox/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../faq_rules/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
@@ -577,11 +511,25 @@
                 <span class="md-footer-nav__direction">
                   Назад
                 </span>
-                Песочница
+                Условия использования
               </div>
             </div>
           </a>
         
+        
+          <a href="../markets/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Вперед
+                </span>
+                Торговые площадки и режимы торгов
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
         
       </nav>
     </div>
