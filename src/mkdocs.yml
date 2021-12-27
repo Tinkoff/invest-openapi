@@ -1,6 +1,6 @@
 site_name: 'Тинькофф Инвестиции OpenAPI'
 docs_dir: docs
-repo_url: https://github.com/TinkoffCreditSystems/invest-openapi
+repo_url: https://github.com/Tinkoff/invest-openapi
 theme:
   name: material
   language: 'ru'

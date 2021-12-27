@@ -9,7 +9,7 @@
 
 **Обратите внимание, что в некоторых случаях может возникнуть ситуация, когда limitDown > limitUp. Это нормально, т.к. limitUp ограничивает на покупку, а limitDown - на продажу, потому ситуация limitDown > limitUp не является аномальной.**
 
-Выставить лимитное торговое поручение (заявку) можно при помощи метода OpenAPI [Создание лимитной заявки](https://tinkoffcreditsystems.github.io/invest-openapi/swagger-ui/#/orders/post_orders_limit_order)
+Выставить лимитное торговое поручение (заявку) можно при помощи метода OpenAPI [Создание лимитной заявки](https://tinkoff.github.io/invest-openapi/swagger-ui/#/orders/post_orders_limit_order)
 
 
 ###Рыночное торговое поручение
@@ -22,12 +22,12 @@
 покупать по следующей по списку цене. Если на бирже низкая ликвидность — например, торги рано утром или до 
 открытия американской биржи, — то оставшаяся часть заявки может быть исполнена по невыгодной для вас цене. 
 Проверить текущую ликвидность можно в 
-[биржевом стакане.](https://tinkoffcreditsystems.github.io/invest-openapi/swagger-ui/#/market/get_market_orderbook)
+[биржевом стакане.](https://tinkoff.github.io/invest-openapi/swagger-ui/#/market/get_market_orderbook)
 
-Выставить рыночное торговое поручение (заявку) можно при помощи метода OpenAPI [Создание рыночной заявки](https://tinkoffcreditsystems.github.io/invest-openapi/swagger-ui/#/orders/post_orders_market_order)
+Выставить рыночное торговое поручение (заявку) можно при помощи метода OpenAPI [Создание рыночной заявки](https://tinkoff.github.io/invest-openapi/swagger-ui/#/orders/post_orders_market_order)
 
 ##Отмена торговых поручений
-В процессе торговли может возникнуть необходимость отменить невыполненную или частично выполненную заявку. Для этого используется метод OpenAPI [Отмена заявки](https://tinkoffcreditsystems.github.io/invest-openapi/swagger-ui/#/orders/post_orders_cancel)
+В процессе торговли может возникнуть необходимость отменить невыполненную или частично выполненную заявку. Для этого используется метод OpenAPI [Отмена заявки](https://tinkoff.github.io/invest-openapi/swagger-ui/#/orders/post_orders_cancel)
 
 ##Стоп-заявки
 В данный момент OpenAPI **не поддерживает** работу со стоп-заявками (take-profit, stop-loss и т.п.)

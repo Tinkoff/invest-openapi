@@ -4,7 +4,7 @@ OpenAPI — HTTP-интерфейс для взаимодействия с то�
 
 OpenAPI позволяет вам выставлять лимитные заявки, просматривать информацию по своему портфелю и получать market-data через streaming.
 
-[Документация для разработчиков](https://tinkoffcreditsystems.github.io/invest-openapi/)
+[Документация для разработчиков](https://tinkoff.github.io/invest-openapi/)
 
 # Зачем нужен этот репозиторий?
 
@@ -23,13 +23,13 @@ OpenAPI позволяет вам выставлять лимитные заяв
 
 # Официальные SDK
 
-[Java](https://github.com/TinkoffCreditSystems/invest-openapi-java-sdk)
+[Java](https://github.com/Tinkoff/invest-openapi-java-sdk)
 
-[C#](https://github.com/TinkoffCreditSystems/invest-openapi-csharp-sdk)
+[C#](https://github.com/Tinkoff/invest-openapi-csharp-sdk)
 
-[Go](https://github.com/TinkoffCreditSystems/invest-openapi-go-sdk)
+[Go](https://github.com/Tinkoff/invest-openapi-go-sdk)
 
-[NodeJS](https://github.com/TinkoffCreditSystems/invest-openapi-js-sdk)
+[NodeJS](https://github.com/Tinkoff/invest-openapi-js-sdk)
 
 # Неофициальные SDK
 

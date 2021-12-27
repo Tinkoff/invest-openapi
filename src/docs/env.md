@@ -26,7 +26,7 @@ Sandbox позволяет вам попробовать свои торговы
 * Комиссии при покупке/продаже не учитываются
 * Доходность всегда считается нулевой
 
-Для того чтобы начать использовать Sandbox, необходимо вызвать [метод регистрации](https://tinkoffcreditsystems.github.io/invest-openapi/swagger-ui/#/sandbox/post_sandbox_register)
+Для того чтобы начать использовать Sandbox, необходимо вызвать [метод регистрации](https://tinkoff.github.io/invest-openapi/swagger-ui/#/sandbox/post_sandbox_register)
 
 ### Управление Sandbox
 
