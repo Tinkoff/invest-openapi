@@ -141,7 +141,7 @@
     
       <div class="md-header__source">
         
-<a href="https://github.com/TinkoffCreditSystems/invest-openapi/" title="Перейти к репозиторию" class="md-source" data-md-component="source">
+<a href="https://github.com/Tinkoff/invest-openapi/" title="Перейти к репозиторию" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
@@ -184,7 +184,7 @@
   
     <div class="md-nav__source">
       
-<a href="https://github.com/TinkoffCreditSystems/invest-openapi/" title="Перейти к репозиторию" class="md-source" data-md-component="source">
+<a href="https://github.com/Tinkoff/invest-openapi/" title="Перейти к репозиторию" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
@@ -608,7 +608,7 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/TinkoffCreditSystems/invest-openapi/edit/master/docs/orders.md" title="Редактировать страницу" class="md-content__button md-icon">
+                  <a href="https://github.com/Tinkoff/invest-openapi/edit/master/docs/orders.md" title="Редактировать страницу" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
@@ -619,7 +619,7 @@
 <p>Чтобы не тратить время на постоянное отслеживание котировок на бирже, вы можете выставить так называемую лимитную заявку — это указание брокеру, какую бумагу или валюту, сколько лотов и по какой цене вы хотите купить или продать.</p>
 <p>Биржа ограничивает цену, которую можно указать в лимитной заявке, крайними предложениями в биржевом стакане (параметры limitUp и limitDown).</p>
 <p><strong>Обратите внимание, что в некоторых случаях может возникнуть ситуация, когда limitDown &gt; limitUp. Это нормально, т.к. limitUp ограничивает на покупку, а limitDown - на продажу, потому ситуация limitDown &gt; limitUp не является аномальной.</strong></p>
-<p>Выставить лимитное торговое поручение (заявку) можно при помощи метода OpenAPI <a href="https://tinkoffcreditsystems.github.io/invest-openapi/swagger-ui/#/orders/post_orders_limit_order">Создание лимитной заявки</a></p>
+<p>Выставить лимитное торговое поручение (заявку) можно при помощи метода OpenAPI <a href="https://tinkoff.github.io/invest-openapi/swagger-ui/#/orders/post_orders_limit_order">Создание лимитной заявки</a></p>
 <h3 id="_4">Рыночное торговое поручение</h3>
 <p>Это заявка на покупку или продажу активов по той цене, что есть на бирже в данный момент. У нее есть важная 
 особенность.
@@ -630,10 +630,10 @@
 покупать по следующей по списку цене. Если на бирже низкая ликвидность — например, торги рано утром или до 
 открытия американской биржи, — то оставшаяся часть заявки может быть исполнена по невыгодной для вас цене. 
 Проверить текущую ликвидность можно в 
-<a href="https://tinkoffcreditsystems.github.io/invest-openapi/swagger-ui/#/market/get_market_orderbook">биржевом стакане.</a></p>
-<p>Выставить рыночное торговое поручение (заявку) можно при помощи метода OpenAPI <a href="https://tinkoffcreditsystems.github.io/invest-openapi/swagger-ui/#/orders/post_orders_market_order">Создание рыночной заявки</a></p>
+<a href="https://tinkoff.github.io/invest-openapi/swagger-ui/#/market/get_market_orderbook">биржевом стакане.</a></p>
+<p>Выставить рыночное торговое поручение (заявку) можно при помощи метода OpenAPI <a href="https://tinkoff.github.io/invest-openapi/swagger-ui/#/orders/post_orders_market_order">Создание рыночной заявки</a></p>
 <h2 id="_5">Отмена торговых поручений</h2>
-<p>В процессе торговли может возникнуть необходимость отменить невыполненную или частично выполненную заявку. Для этого используется метод OpenAPI <a href="https://tinkoffcreditsystems.github.io/invest-openapi/swagger-ui/#/orders/post_orders_cancel">Отмена заявки</a></p>
+<p>В процессе торговли может возникнуть необходимость отменить невыполненную или частично выполненную заявку. Для этого используется метод OpenAPI <a href="https://tinkoff.github.io/invest-openapi/swagger-ui/#/orders/post_orders_cancel">Отмена заявки</a></p>
 <h2 id="-">Стоп-заявки</h2>
 <p>В данный момент OpenAPI <strong>не поддерживает</strong> работу со стоп-заявками (take-profit, stop-loss и т.п.)</p>
 <h2 id="-_1">Особенности исполнения заявок на Санкт-Петербургской бирже</h2>
