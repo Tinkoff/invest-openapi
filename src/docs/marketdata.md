@@ -241,7 +241,9 @@ closing_period - торги в периоде закрытия;
 discrete_auction - торги в дискретном аукционе;
 opening_period - торги в аукционе открытия;
 trading_at_closing_auction_price - торги по цене аукциона закрытия
-
+dealer_normal_trading - торговля с внутренней ликвидностью брокера
+dealer_break_in_trading - торговля с внутренней ликвидностью брокера приостановлены
+dealer_not_available_for_trading - торговля с внутренней ликвидностью брокера недоступна
 ```
 
 
